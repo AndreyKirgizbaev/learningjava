@@ -29,6 +29,23 @@
     <!-- Bootstrap Core JavaScript -->
     <spring:url value="/resources/js/bootstrap.min.js" var="js"/>
     <script src="${js}"></script>
+
+    <!-- Codemirror JavaScript -->
+    <spring:url value="/resources/codemirror/codemirror.js" var="codemirrorjs"/>
+    <script src="${codemirrorjs}"></script>
+
+    <!-- Codemirror CSS -->
+    <spring:url value="/resources/codemirror/codemirror.css" var="codemirrorcss"/>
+    <link href="${codemirrorcss}" rel="stylesheet" />
+
+    <!-- Codemirror Java -->
+    <spring:url value="/resources/codemirror/clike.js" var="clike"/>
+    <script src="${clike}"></script>
+
+    <!-- Codemirror Theme -->
+    <spring:url value="/resources/codemirror/darcula.css" var="codemirrortheme"/>
+    <link href="${codemirrortheme}" rel="stylesheet" />
+
 </head>
 
 <body>

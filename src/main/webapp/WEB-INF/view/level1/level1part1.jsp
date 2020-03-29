@@ -81,21 +81,6 @@
 
                 <div class="col-lg-12">
                     <h3>
-                        <spring:message code="levels.level1.part1.strings"/>
-                    </h3>
-                    <p>
-                        <spring:message code="levels.level1.part1.strings.about1"/>
-                    </p>
-                    <p>
-                        <spring:message code="levels.level1.part1.strings.about2"/>
-                    </p>
-                    <p>
-                        <spring:message code="levels.level1.part1.strings.about3"/>
-                    </p>
-                </div>
-
-                <div class="col-lg-12">
-                    <h3>
                         <spring:message code="levels.level1.part1.remember"/>
                     </h3>
                     <p>
