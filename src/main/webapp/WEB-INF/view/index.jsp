@@ -11,13 +11,12 @@
 
     <jsp:body>
 
-        <!-- Page Content -->
         <div class="container">
 
             <div class="row">
 
                 <div class="col-lg-12">
-                    <h1 class="page-header">
+                    <h1 class="pb-2 mt-4 mb-2 border-bottom">
                         <spring:message code="content.introMsg"/>
                     </h1>
                 </div>
@@ -42,27 +41,29 @@
                 </div>
 
                 <c:url value="/java.html" var="java"/>
-                <div class="col-md-4">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4>
+                <div class="col-sm-4 col-xs-12">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h4 class="card-title">
                                 <span style="font-size: 20px; color: #f8ac00;">
                                     <i class="fab fa-java"></i>
                                 </span>
                                 Java
                             </h4>
                         </div>
-                        <div class="panel-body">
-                            <p><spring:message code="content.java"/></p>
+                        <div class="card-body">
+                            <p class="card-text"><spring:message code="content.java"/></p>
+                        </div>
+                        <div class="card-footer">
                             <a href="${java}" class="btn btn-default"><spring:message code="content.more"/></a>
                         </div>
                     </div>
                 </div>
 
                 <c:url value="/books.html" var="books"/>
-                <div class="col-md-4">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
+                <div class="col-sm-4 col-xs-12">
+                    <div class="card h-100">
+                        <div class="card-header">
                             <h4>
                                 <span style="font-size: 20px;  color: #ba7f49;">
                                     <i class="fas fa-book"></i>
@@ -70,17 +71,19 @@
                                 <spring:message code="content.books"/>
                             </h4>
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
                             <p><spring:message code="content.books.about"/></p>
+                        </div>
+                        <div class="card-footer">
                             <a href="${books}" class="btn btn-default"><spring:message code="content.more"/></a>
                         </div>
                     </div>
                 </div>
 
                 <c:url value="/levels.html" var="levels"/>
-                <div class="col-md-4">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
+                <div class="col-sm-4 col-xs-12">
+                    <div class="card h-100">
+                        <div class="card-header">
                             <h4>
                                 <span style="font-size: 20px; color: #f89917;">
                                     <i class="fas fa-space-shuttle"></i>
@@ -88,8 +91,10 @@
                                 <spring:message code="content.levels"/>
                             </h4>
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
                             <p><spring:message code="content.levels.about"/></p>
+                        </div>
+                        <div class="card-footer">
                             <a href="${levels}" class="btn btn-default"><spring:message code="content.more"/></a>
                         </div>
                     </div>

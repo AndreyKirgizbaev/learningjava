@@ -7,76 +7,64 @@
 
 <%--<c:url value="/file.html" var="file"/>--%>
 
-
-<!-- Navigation -->
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index.html">
-                <i class="fab fa-java"></i>
-                LearningJava</a>
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-
+        <a class="navbar-brand" href="index.html"><i class="fab fa-java"></i>LearningJava</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
                 <c:url value="/java.html" var="java"/>
-                <li><a href="${java}">Java</a></li>
-
+                <li class="nav-item">
+                    <a class="nav-link" href="${java}">Java</a>
+                </li>
                 <c:url value="/books.html" var="books"/>
-                <li><a href="${books}"><spring:message code="navMenu.books"/></a></li>
-
+                <li class="nav-item">
+                    <a class="nav-link" href="${books}"><spring:message code="navMenu.books"/></a>
+                </li>
                 <c:url value="/levels.html" var="levels"/>
-                <li class="dropdown">
-                    <%--                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><spring:message code="navMenu.tutorial"/><b--%>
-                    <%--                            class="caret"></b></a>--%>
-                    <%--                    <ul class="dropdown-menu">--%>
-                    <%--                        <li>--%>
-                    <%--                            <a href="${levels}"></a>--%>
-                    <%--                        </li>--%>
-                    <%--                    </ul>--%>
-
-                    <a href="${levels}"><spring:message code="navMenu.tutorial"/></a>
+                <li class="nav-item">
+                    <a class="nav-link" href="${levels}"><spring:message code="navMenu.tutorial"/></a>
+                </li>
+                <c:url value="/search.html" var="search"/>
+                <li class="nav-item">
+                    <a class="nav-link" href="${search}"><spring:message code="navMenu.search"/></a>
                 </li>
 
-                <c:url value="/search.html" var="search"/>
-                <li><a href="${search}"><spring:message code="navMenu.search"/></a></li>
-
-                <li></li>
+                <li class="nav-item"></li>
 
                 <security:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_SUPER_USER', 'ROLE_USER')" var="isUSer"/>
 
                 <c:if test="${not isUSer}">
-                    <li style="padding-top: 15px; padding-bottom: 15px; padding-left: 15px; color: #dc3545">
+                    <li class="nav-item">
                         <c:if test="${empty param.error}">
-                            <spring:message code="navMenu.notLogin"/>
+                            <a class="nav-link" style="color: #dc3545"><spring:message code="navMenu.notLogin"/></a>
                         </c:if>
                     </li>
-                    <li><a href="<c:url value="/login.html"/>"><spring:message code="navMenu.login"/></a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<c:url value="/login.html"/>"><spring:message
+                                code="navMenu.login"/></a>
+                    </li>
                 </c:if>
 
-
                 <c:if test="${isUSer}">
-                    <li style="padding-top: 15px; padding-bottom: 15px; color: green">
-                        <spring:message code="navMenu.existLogin"/>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: green"><spring:message code="navMenu.existLogin"/></a>
                         <security:authentication property="principal.username"/> <spring:message
                             code="navMenu.existLoginRole"/>
                         <b><security:authentication property="principal.authorities"/></b>
 
                     </li>
-                    <li><a style="color: red;" href="<c:url value="/j_spring_security_logout"/>"><spring:message
-                            code="navMenu.logout"/></a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: red;" href="<c:url value="/j_spring_security_logout"/>">
+                            <spring:message
+                                    code="navMenu.logout"/>
+                        </a>
+                    </li>
                 </c:if>
             </ul>
         </div>
-
     </div>
 </nav>

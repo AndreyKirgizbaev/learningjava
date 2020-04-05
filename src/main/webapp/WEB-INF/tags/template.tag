@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<%@tag description="Template Site tag" pageEncoding="UTF-8"%>
+<%@tag description="Template Site tag" pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
@@ -9,18 +9,21 @@
 <%@attribute name="header" fragment="true" %>
 <html>
 <head>
-    <title><jsp:invoke fragment="title"/></title>
+    <title>
+        <jsp:invoke fragment="title"/>
+    </title>
 
     <!-- Bootstrap Core CSS -->
     <spring:url value="/resources/css/bootstrap.min.css" var="bootstrap"/>
-    <link href="${bootstrap}" rel="stylesheet" />
+    <link href="${bootstrap}" rel="stylesheet"/>
 
     <!-- Custom CSS -->
-    <spring:url value="/resources/css/modern-business.css" var="startertemplate"/>
-    <link href="${startertemplate}" rel="stylesheet" />
+    <spring:url value="/resources/css/modern-business.css" var="modernbusiness"/>
+    <link href="${modernbusiness}" rel="stylesheet"/>
 
     <!-- Font Awesome -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.js" integrity="sha256-2JRzNxMJiS0aHOJjG+liqsEOuBb6++9cY4dSOyiijX4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.js"
+            integrity="sha256-2JRzNxMJiS0aHOJjG+liqsEOuBb6++9cY4dSOyiijX4=" crossorigin="anonymous"></script>
 
     <!-- jQuery -->
     <spring:url value="/resources/js/jquery-2.1.4.min.js" var="jqueryjs"/>
@@ -36,7 +39,7 @@
 
     <!-- Codemirror CSS -->
     <spring:url value="/resources/codemirror/codemirror.css" var="codemirrorcss"/>
-    <link href="${codemirrorcss}" rel="stylesheet" />
+    <link href="${codemirrorcss}" rel="stylesheet"/>
 
     <!-- Codemirror Java -->
     <spring:url value="/resources/codemirror/clike.js" var="clike"/>
@@ -44,7 +47,7 @@
 
     <!-- Codemirror Theme -->
     <spring:url value="/resources/codemirror/darcula.css" var="codemirrortheme"/>
-    <link href="${codemirrortheme}" rel="stylesheet" />
+    <link href="${codemirrortheme}" rel="stylesheet"/>
 
 </head>
 
@@ -55,10 +58,8 @@
 
 <jsp:doBody/>
 
-
-<div class="container">
-    <!-- Footer -->
-    <footer>
+<footer>
+    <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <a href="<%=request.getContextPath()%>?languageVar=en">EN</a>
@@ -66,8 +67,8 @@
                 <p>© 2020 Copyright by Andrey Kirgizbaev</p>
             </div>
         </div>
-    </footer>
-</div>
+    </div>
+</footer>
 
 </body>
 

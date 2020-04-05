@@ -11,13 +11,12 @@
 
     <jsp:body>
 
-        <!-- Page Content -->
         <div class="container">
 
             <div class="row">
 
                 <div class="col-lg-12">
-                    <h1 class="page-header">
+                    <h1 class="pb-2 mt-4 mb-2 border-bottom">
                         <spring:message code="books.introMsg"/>
                     </h1>
                 </div>
