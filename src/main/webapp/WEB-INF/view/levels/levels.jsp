@@ -48,6 +48,33 @@
                     </a>
                 </div>
 
+                <c:url value="/level1part4.html" var="level1part4"/>
+                <div class="col-lg-12" style="padding-bottom: 15px;">
+                    <a href="${level1part4}">
+                        <h3>
+                            <spring:message code="levels.level1.part4"/>
+                        </h3>
+                    </a>
+                </div>
+
+                <c:url value="/level1part5.html" var="level1part5"/>
+                <div class="col-lg-12" style="padding-bottom: 15px;">
+                    <a href="${level1part5}">
+                        <h3>
+                            <spring:message code="levels.level1.part5"/>
+                        </h3>
+                    </a>
+                </div>
+
+                <c:url value="/level1part6.html" var="level1part6"/>
+                <div class="col-lg-12" style="padding-bottom: 15px;">
+                    <a href="${level1part6}">
+                        <h3>
+                            <spring:message code="levels.level1.part6"/>
+                        </h3>
+                    </a>
+                </div>
+
             </div>
 
         </div>

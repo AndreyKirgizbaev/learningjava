@@ -166,7 +166,7 @@
                     </form>
                     <br/>
 
-
+                    <p><spring:message code="levels.solve"/></p>
                     <form action="/level1part3.html#task" method="POST">
 
                         <textarea id="java-editor" name='code'><c:out value="${code}"/></textarea>

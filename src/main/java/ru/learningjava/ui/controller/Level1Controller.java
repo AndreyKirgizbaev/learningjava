@@ -122,7 +122,195 @@ public class Level1Controller {
 
         String correctAnswer = "Writing programs is very interesting!";
 
-        if (correctAnswer.equals(answer.replaceFirst("\n", ""))) {
+        if (correctAnswer.equals(answer)) {
+            modelAndView.addObject("result", true);
+        } else {
+            modelAndView.addObject("result", false);
+        }
+
+        modelAndView.addObject("answer", answer);
+
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/level1part4.html", method = RequestMethod.GET)
+    public ModelAndView loadPart4Page() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/level1/level1part4");
+
+        String code = "public class Main {\n" +
+                "    public static void main(String[] args) {\n" +
+                "String programLanguage = \"Java\";\n" +
+                "int apples = 5;\n" +
+                "System.out.println(programLanguage);\n" +
+                "System.out.println(apples);\n" +
+                "    }\n" +
+                "  }";
+        modelAndView.addObject("code", code);
+
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/level1part4.html", method = RequestMethod.POST)
+    public ModelAndView compilePart4Code(@RequestParam("code") String code) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("code", code);
+
+        modelAndView.setViewName("/level1/level1part4");
+
+        if (code.isEmpty()) {
+            modelAndView.addObject("result", false);
+            modelAndView.addObject("answer",
+                    messageSource.getMessage("levels.empty", null, LocaleContextHolder.getLocale()));
+            return modelAndView;
+        } else if (!code.contains("programLanguage")) {
+            modelAndView.addObject("result", false);
+            modelAndView.addObject("answer",
+                    messageSource.getMessage("levels.level1.part4.task.error1", null, LocaleContextHolder.getLocale()));
+            return modelAndView;
+        } else if (!code.contains("\"Java\"")) {
+            modelAndView.addObject("result", false);
+            modelAndView.addObject("answer",
+                    messageSource.getMessage("levels.level1.part4.task.error2", null, LocaleContextHolder.getLocale()));
+            return modelAndView;
+        } else if (!code.contains("apples")) {
+            modelAndView.addObject("result", false);
+            modelAndView.addObject("answer",
+                    messageSource.getMessage("levels.level1.part4.task.error3", null, LocaleContextHolder.getLocale()));
+            return modelAndView;
+        } else if (!code.contains("5")) {
+            modelAndView.addObject("result", false);
+            modelAndView.addObject("answer",
+                    messageSource.getMessage("levels.level1.part4.task.error4", null, LocaleContextHolder.getLocale()));
+            return modelAndView;
+        }
+
+        CompilerRest compilerRest = compileService.sendCode(code);
+
+        String answer = compilerRest.getOutput();
+
+        String correctAnswer = "Java\n" +
+                "5";
+
+        if (correctAnswer.equals(answer)) {
+            modelAndView.addObject("result", true);
+        } else {
+            modelAndView.addObject("result", false);
+        }
+
+        modelAndView.addObject("answer", answer);
+
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/level1part5.html", method = RequestMethod.GET)
+    public ModelAndView loadPart5Page() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/level1/level1part5");
+
+        String code = "public class Main {\n" +
+                "    public static void main(String[] args) {\n" +
+                "       // System.out.print(\"Hello \");\n" +
+                "       System.out.print(\"World!\");\n" +
+                "       // System.out.println(\"World!\");\n" +
+                "       /* System.out.println(\"I love Java!\"); */\n" +
+                "    }\n" +
+                "  }";
+        modelAndView.addObject("code", code);
+
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/level1part5.html", method = RequestMethod.POST)
+    public ModelAndView compilePart5Code(@RequestParam("code") String code) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("code", code);
+
+        modelAndView.setViewName("/level1/level1part5");
+
+        if (code.isEmpty()) {
+            modelAndView.addObject("result", false);
+            modelAndView.addObject("answer",
+                    messageSource.getMessage("levels.empty", null, LocaleContextHolder.getLocale()));
+            return modelAndView;
+        } else if (!code.contains("System.out.print(\"Hello \");") || !code.contains("System.out.println(\"World!\");")
+                        || !code.contains("System.out.println(\"I love Java!\");")) {
+            modelAndView.addObject("result", false);
+            modelAndView.addObject("answer",
+                    messageSource.getMessage("levels.level1.part5.task.error", null, LocaleContextHolder.getLocale()));
+            return modelAndView;
+        }
+
+        CompilerRest compilerRest = compileService.sendCode(code);
+
+        String answer = compilerRest.getOutput();
+
+        String correctAnswer = "Hello World!\n" +
+                "I love Java!";
+
+        if (correctAnswer.equals(answer)) {
+            modelAndView.addObject("result", true);
+        } else {
+            modelAndView.addObject("result", false);
+        }
+
+        modelAndView.addObject("answer", answer);
+
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/level1part6.html", method = RequestMethod.GET)
+    public ModelAndView loadPart6Page() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/level1/level1part6");
+
+        String code = "public class Main {\n" +
+                "    public static void main(String[] args) {\n" +
+                "       int a = 5;\n" +
+                "       \n" +
+                "    }\n" +
+                "  }";
+        modelAndView.addObject("code", code);
+
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/level1part6.html", method = RequestMethod.POST)
+    public ModelAndView compilePart6Code(@RequestParam("code") String code) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("code", code);
+
+        modelAndView.setViewName("/level1/level1part6");
+
+        if (code.isEmpty()) {
+            modelAndView.addObject("result", false);
+            modelAndView.addObject("answer",
+                    messageSource.getMessage("levels.empty", null, LocaleContextHolder.getLocale()));
+            return modelAndView;
+        } else if (!code.contains("int a = 5;")) {
+            modelAndView.addObject("result", false);
+            modelAndView.addObject("answer",
+                    messageSource.getMessage("levels.level1.part6.task.error1", null, LocaleContextHolder.getLocale()));
+            return modelAndView;
+        } else if (!code.contains("11")) {
+            modelAndView.addObject("result", false);
+            modelAndView.addObject("answer",
+                    messageSource.getMessage("levels.level1.part6.task.error2", null, LocaleContextHolder.getLocale()));
+            return modelAndView;
+        } else if (!code.contains("4")) {
+            modelAndView.addObject("result", false);
+            modelAndView.addObject("answer",
+                    messageSource.getMessage("levels.level1.part6.task.error3", null, LocaleContextHolder.getLocale()));
+            return modelAndView;
+        }
+
+        CompilerRest compilerRest = compileService.sendCode(code);
+
+        String answer = compilerRest.getOutput();
+
+        String correctAnswer = "4";
+
+        if (correctAnswer.equals(answer)) {
             modelAndView.addObject("result", true);
         } else {
             modelAndView.addObject("result", false);

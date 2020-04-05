@@ -1,6 +1,10 @@
 package ru.learningjava.service.impl;
 
 import com.google.gson.Gson;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Service;
 import ru.learningjava.ui.model.response.CompilerRest;
 
@@ -19,6 +23,10 @@ public class CompileService {
     private static final String language = "java";
     private static final String versionIndex = "3";
 
+    @Autowired
+    @Qualifier("messageSource")
+    MessageSource messageSource;
+
     public CompilerRest sendCode(String code) {
         try {
             URL url = new URL("https://api.jdoodle.com/v1/execute");
@@ -29,18 +37,22 @@ public class CompileService {
 
             code = code.replaceAll("\r\n", "\\\\n");
             code = code.replaceAll("\"", "\\\\\"");
+            code = code.replaceAll("\t", "\\\\t");
 
             String input = "{\"clientId\": \"" + clientId + "\",\"clientSecret\":\"" + clientSecret + "\",\"script\":\"" + code +
                     "\",\"language\":\"" + language + "\",\"versionIndex\":\"" + versionIndex + "\"} ";
-
-            System.out.println(input);
 
             OutputStream outputStream = connection.getOutputStream();
             outputStream.write(input.getBytes());
             outputStream.flush();
 
+            CompilerRest compilerRest;
+
             if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) {
-                throw new RuntimeException("Please check your inputs : HTTP error code : " + connection.getResponseCode());
+                compilerRest = new CompilerRest();
+                compilerRest.setOutput(messageSource.getMessage("levels.inputError", null, LocaleContextHolder.getLocale()));
+
+                return compilerRest;
             }
 
             BufferedReader bufferedReader;
@@ -55,7 +67,10 @@ public class CompileService {
 
             connection.disconnect();
 
-            return new Gson().fromJson(result.toString(), CompilerRest.class);
+            compilerRest = new Gson().fromJson(result.toString(), CompilerRest.class);
+            compilerRest.setOutput(compilerRest.getOutput().trim());
+
+            return compilerRest;
 
         } catch (IOException e) {
             e.printStackTrace();
