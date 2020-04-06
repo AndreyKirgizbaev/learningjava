@@ -194,30 +194,23 @@
                     <br/>
 
                     <p><spring:message code="levels.solve"/></p>
-                    <form action="/level1part4.html#task" method="POST">
-
+                    <form>
                         <textarea id="java-editor" name='code'><c:out value="${code}"/></textarea>
+                    </form>
+                    <div class="text-center" style="padding-top: 5px">
+                        <input type="button" class="btn btn-dark" id="compile"
+                               value="<spring:message code="levels.compile"/>">
+                    </div>
 
-                        <div class="text-center" style="padding-top: 5px">
-                            <input type="submit" class="btn btn-dark" value="<spring:message code="levels.compile"/>">
-                        </div>
+                    <br/>
+                    <form>
+                        <textarea id="answer">${answer}</textarea>
                     </form>
                     <br/>
-                    <c:if test="${result != null}">
-                        <c:if test="${result}">
-                            <form>
-                                <textarea class="java-code">${answer}</textarea>
-                            </form>
-                            <p class="alert alert-success"><spring:message code="levels.true"/></p>
-                        </c:if>
-                        <c:if test="${!result}">
-                            <form>
-                                <textarea class="java-code">${answer}</textarea>
-                            </form>
-                            <br/>
-                            <p class="alert alert-danger"><spring:message code="levels.false"/></p>
-                        </c:if>
-                    </c:if>
+                    <p class="alert alert-success" id="correctAnswer" style="display:none"><spring:message
+                            code="levels.true"/></p>
+                    <p class="alert alert-danger" id="wrongAnswer" style="display:none"><spring:message
+                            code="levels.false"/></p>
                     <br/>
 
 
@@ -245,25 +238,65 @@
         </div>
 
         <script>
+            $(document).ready(function () {
+                $('.java-code').each(function (index, elem) {
+                    CodeMirror.fromTextArea(elem, {
+                        readOnly: "nocursor",
+                        viewportMargin: 2,
+                        theme: "darcula",
+                        lineNumbers: true,
+                        matchBrackets: true,
+                        mode: "text/x-java"
+                    }).setSize("100%", "100%");
+                });
 
-            $('.java-code').each(function (index, elem) {
-                CodeMirror.fromTextArea(elem, {
+                var codeFromTextArea = CodeMirror.fromTextArea(document.getElementById("java-editor"), {
+                    viewportMargin: 2,
+                    theme: "darcula",
+                    lineNumbers: true,
+                    matchBrackets: true,
+                    mode: "text/x-java"
+                });
+                codeFromTextArea.setSize("100%", "100%");
+
+                var compileAnswer = CodeMirror.fromTextArea(document.getElementById("answer"), {
                     readOnly: "nocursor",
                     viewportMargin: 2,
                     theme: "darcula",
                     lineNumbers: true,
                     matchBrackets: true,
                     mode: "text/x-java"
-                }).setSize("100%", "100%");
+                });
+                compileAnswer.setSize("100%", "100%");
+
+                $("#compile").click(function() {
+
+                    var code = codeFromTextArea.getValue();
+
+                    $.ajaxSetup({
+                        "contentType": "application/json"
+                    });
+
+                    var dataPayload = {"code": code};
+
+                    $.post('http://localhost:8080/level1part4compile', JSON.stringify(dataPayload))
+                        .done(function (response) {
+
+                            compileAnswer.setValue(response["answer"]);
+
+                            if (response["result"] === true) {
+                                $("#wrongAnswer").attr("style", "display: none !important;");
+                                $("#correctAnswer").attr("style", "display: block !important;");
+
+                            } else {
+                                $("#correctAnswer").attr("style", "display: none !important;");
+                                $("#wrongAnswer").attr("style", "display: block !important;");
+                            }
+
+                        });
+                });
             });
 
-            var javaEditor = CodeMirror.fromTextArea(document.getElementById("java-editor"), {
-                viewportMargin: 2,
-                theme: "darcula",
-                lineNumbers: true,
-                matchBrackets: true,
-                mode: "text/x-java"
-            }).setSize("100%", "100%");
         </script>
 
 

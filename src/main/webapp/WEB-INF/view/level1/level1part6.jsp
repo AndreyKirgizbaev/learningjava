@@ -43,7 +43,8 @@
                         <spring:message code="levels.level1.part6.arithmetic"/>
                     </h3>
                     <form>
-                        <textarea class="java-code"><spring:message code="levels.level1.part6.arithmetic.about1"/></textarea>
+                        <textarea class="java-code"><spring:message
+                                code="levels.level1.part6.arithmetic.about1"/></textarea>
                     </form>
                     <br/>
 
@@ -51,7 +52,8 @@
                         <spring:message code="levels.output"/>
                     </p>
                     <form>
-                        <textarea class="java-code"><spring:message code="levels.level1.part6.arithmetic.about2"/></textarea>
+                        <textarea class="java-code"><spring:message
+                                code="levels.level1.part6.arithmetic.about2"/></textarea>
                     </form>
                     <br/>
 
@@ -59,7 +61,8 @@
                         <spring:message code="levels.level1.part6.arithmetic.about3"/>
                     </p>
                     <form>
-                        <textarea class="java-code"><spring:message code="levels.level1.part6.arithmetic.about4"/></textarea>
+                        <textarea class="java-code"><spring:message
+                                code="levels.level1.part6.arithmetic.about4"/></textarea>
                     </form>
                     <br/>
 
@@ -74,7 +77,8 @@
                         <spring:message code="levels.level1.part6.abbreviated.about2"/>
                     </p>
                     <form>
-                        <textarea class="java-code"><spring:message code="levels.level1.part6.abbreviated.about3"/></textarea>
+                        <textarea class="java-code"><spring:message
+                                code="levels.level1.part6.abbreviated.about3"/></textarea>
                     </form>
                     <br/>
 
@@ -82,7 +86,8 @@
                         <spring:message code="levels.level1.part6.abbreviated.about4"/>
                     </p>
                     <form>
-                        <textarea class="java-code"><spring:message code="levels.level1.part6.abbreviated.about5"/></textarea>
+                        <textarea class="java-code"><spring:message
+                                code="levels.level1.part6.abbreviated.about5"/></textarea>
                     </form>
                     <br/>
 
@@ -96,7 +101,8 @@
                         <spring:message code="levels.level1.part6.abbreviated.about8"/>
                     </p>
                     <form>
-                        <textarea class="java-code"><spring:message code="levels.level1.part6.abbreviated.about9"/></textarea>
+                        <textarea class="java-code"><spring:message
+                                code="levels.level1.part6.abbreviated.about9"/></textarea>
                     </form>
                     <br/>
 
@@ -104,7 +110,8 @@
                         <spring:message code="levels.output"/>
                     </p>
                     <form>
-                        <textarea class="java-code"><spring:message code="levels.level1.part6.abbreviated.about10"/></textarea>
+                        <textarea class="java-code"><spring:message
+                                code="levels.level1.part6.abbreviated.about10"/></textarea>
                     </form>
                     <br/>
 
@@ -123,30 +130,23 @@
                     <p><spring:message code="levels.level1.part6.task"/></p>
 
                     <p><spring:message code="levels.solve"/></p>
-                    <form action="/level1part6.html#task" method="POST">
-
+                    <form>
                         <textarea id="java-editor" name='code'><c:out value="${code}"/></textarea>
+                    </form>
+                    <div class="text-center" style="padding-top: 5px">
+                        <input type="button" class="btn btn-dark" id="compile"
+                               value="<spring:message code="levels.compile"/>">
+                    </div>
 
-                        <div class="text-center" style="padding-top: 5px">
-                            <input type="submit" class="btn btn-dark" value="<spring:message code="levels.compile"/>">
-                        </div>
+                    <br/>
+                    <form>
+                        <textarea id="answer">${answer}</textarea>
                     </form>
                     <br/>
-                    <c:if test="${result != null}">
-                        <c:if test="${result}">
-                            <form>
-                                <textarea class="java-code">${answer}</textarea>
-                            </form>
-                            <p class="alert alert-success"><spring:message code="levels.true"/></p>
-                        </c:if>
-                        <c:if test="${!result}">
-                            <form>
-                                <textarea class="java-code">${answer}</textarea>
-                            </form>
-                            <br/>
-                            <p class="alert alert-danger"><spring:message code="levels.false"/></p>
-                        </c:if>
-                    </c:if>
+                    <p class="alert alert-success" id="correctAnswer" style="display:none"><spring:message
+                            code="levels.true"/></p>
+                    <p class="alert alert-danger" id="wrongAnswer" style="display:none"><spring:message
+                            code="levels.false"/></p>
                     <br/>
 
 
@@ -174,25 +174,65 @@
         </div>
 
         <script>
+            $(document).ready(function () {
+                $('.java-code').each(function (index, elem) {
+                    CodeMirror.fromTextArea(elem, {
+                        readOnly: "nocursor",
+                        viewportMargin: 2,
+                        theme: "darcula",
+                        lineNumbers: true,
+                        matchBrackets: true,
+                        mode: "text/x-java"
+                    }).setSize("100%", "100%");
+                });
 
-            $('.java-code').each(function (index, elem) {
-                CodeMirror.fromTextArea(elem, {
+                var codeFromTextArea = CodeMirror.fromTextArea(document.getElementById("java-editor"), {
+                    viewportMargin: 2,
+                    theme: "darcula",
+                    lineNumbers: true,
+                    matchBrackets: true,
+                    mode: "text/x-java"
+                });
+                codeFromTextArea.setSize("100%", "100%");
+
+                var compileAnswer = CodeMirror.fromTextArea(document.getElementById("answer"), {
                     readOnly: "nocursor",
                     viewportMargin: 2,
                     theme: "darcula",
                     lineNumbers: true,
                     matchBrackets: true,
                     mode: "text/x-java"
-                }).setSize("100%", "100%");
+                });
+                compileAnswer.setSize("100%", "100%");
+
+                $("#compile").click(function() {
+
+                    var code = codeFromTextArea.getValue();
+
+                    $.ajaxSetup({
+                        "contentType": "application/json"
+                    });
+
+                    var dataPayload = {"code": code};
+
+                    $.post('http://localhost:8080/level1part6compile', JSON.stringify(dataPayload))
+                        .done(function (response) {
+
+                            compileAnswer.setValue(response["answer"]);
+
+                            if (response["result"] === true) {
+                                $("#wrongAnswer").attr("style", "display: none !important;");
+                                $("#correctAnswer").attr("style", "display: block !important;");
+
+                            } else {
+                                $("#correctAnswer").attr("style", "display: none !important;");
+                                $("#wrongAnswer").attr("style", "display: block !important;");
+                            }
+
+                        });
+                });
             });
 
-            var javaEditor = CodeMirror.fromTextArea(document.getElementById("java-editor"), {
-                viewportMargin: 2,
-                theme: "darcula",
-                lineNumbers: true,
-                matchBrackets: true,
-                mode: "text/x-java"
-            }).setSize("100%", "100%");
         </script>
 
 

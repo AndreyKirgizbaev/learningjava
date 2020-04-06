@@ -1,4 +1,4 @@
-package ru.learningjava.ui.model.response;
+package ru.learningjava.ui.model.request;
 
 public class CompilerRest {
 

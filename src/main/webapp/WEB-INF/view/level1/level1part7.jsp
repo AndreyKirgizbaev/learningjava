@@ -17,18 +17,12 @@
 
                 <div class="col-lg-12">
                     <h1 class="pb-2 mt-4 mb-2 border-bottom">
-                        <spring:message code="levels.level1.part2"/>
+                        <spring:message code="levels.level1.part7"/>
                     </h1>
                 </div>
 
                 <div class="col-1 scroll">
                     <div id="list-example" class="list-group">
-                        <a class="list-group-item list-group-item-action" href="#print">
-                            <spring:message code="levels.level1.part2.printShort"/>
-                        </a>
-                        <a class="list-group-item list-group-item-action" href="#printNumbers">
-                            <spring:message code="levels.level1.part2.printNumbers"/>
-                        </a>
                         <a class="list-group-item list-group-item-action" href="#task">
                             <spring:message code="levels.task"/>
                         </a>
@@ -38,85 +32,37 @@
                 <div class="col-2"></div>
 
                 <div class="col-10">
-                    <h3 id="print">
-                        <spring:message code="levels.level1.part2.print"/>
-                    </h3>
-                    <p>
-                        <spring:message code="levels.level1.part2.print.about1"/>
-                    </p>
-                    <p>
-                        <spring:message code="levels.level1.part2.print.about2"/>
-                    </p>
-
-                    <form>
-                        <textarea class="java-code"><spring:message code="levels.level1.part2.print.about3"/></textarea>
-                    </form>
-
-                    <br/>
-                    <form>
-                        <p>
-                            <spring:message code="levels.level1.part2.output"/>
-                        </p>
-                    <textarea class="java-code"><spring:message code="levels.level1.part2.print.about4"/></textarea>
-                    </form>
-                    <br/>
-
 
                     <p>
-                        <spring:message code="levels.level1.part2.print.about5"/>
+                        <spring:message code="levels.level1.part7.about1"/>
                     </p>
-
                     <form>
-                        <textarea class="java-code"><spring:message code="levels.level1.part2.print.about6"/></textarea>
+                        <textarea class="java-code"><spring:message
+                                code="levels.level1.part7.about2"/></textarea>
                     </form>
                     <br/>
 
                     <p>
-                        <spring:message code="levels.level1.part2.print.about7"/>
+                        <spring:message code="levels.level1.part7.about3"/>
                     </p>
-
                     <form>
-                        <textarea class="java-code"><spring:message code="levels.level1.part2.print.about8"/></textarea>
-                    </form>
-
-                    <br/>
-                    <form>
-                        <p>
-                            <spring:message code="levels.level1.part2.output"/>
-                        </p>
-                        <textarea class="java-code"><spring:message code="levels.level1.part2.print.about9"/></textarea>
+                        <textarea class="java-code"><spring:message
+                                code="levels.level1.part7.about4"/></textarea>
                     </form>
                     <br/>
 
-                    <h3 id="printNumbers">
-                        <spring:message code="levels.level1.part2.printNumbers"/>
-                    </h3>
                     <p>
-                        <spring:message code="levels.level1.part2.printNumbers.about1"/>
+                        <spring:message code="levels.level1.part7.about5"/>
                     </p>
-
-                    <form>
-                        <textarea class="java-code"><spring:message code="levels.level1.part2.printNumbers.about2"/></textarea>
-                    </form>
-
-                    <br/>
-                    <form>
-                        <p>
-                            <spring:message code="levels.level1.part2.output"/>
-                        </p>
-                        <textarea class="java-code"><spring:message code="levels.level1.part2.printNumbers.about3"/></textarea>
-                    </form>
-                    <br/>
+                    <p>
+                        <spring:message code="levels.level1.part7.about6"/>
+                    </p>
 
                     <h3 id="task">
                         <spring:message code="levels.task"/>
                     </h3>
 
-                    <p><spring:message code="levels.level1.part2.task"/></p>
-                    <form>
-                        <textarea class="java-code"><spring:message code="levels.level1.part2.about"/></textarea>
-                    </form>
-                    <br/>
+                    <p><spring:message code="levels.level1.part7.task"/></p>
 
                     <p><spring:message code="levels.solve"/></p>
                     <form>
@@ -139,18 +85,18 @@
                     <br/>
 
 
-                    <c:url value="/level1part1.html" var="level1part1"/>
+                    <c:url value="/level1part6.html" var="level1part6"/>
                     <c:url value="/levels.html" var="levels"/>
-                    <c:url value="/level1part3.html" var="level1part3"/>
+                    <c:url value="/level1part8.html" var="level1part8"/>
                     <div class="col-lg-12  reverse">
                         <div class="text-center">
-                            <a class="btn btn-primary float-left" href="${level1part1}" role="button">
+                            <a class="btn btn-primary float-left" href="${level1part6}" role="button">
                                 <spring:message code="levels.previousTheme"/>
                             </a>
                             <a class="btn btn-primary" href="${levels}" role="button">
                                 <spring:message code="levels.introMsg"/>
                             </a>
-                            <a class="btn btn-primary float-right" href="${level1part3}" role="button">
+                            <a class="btn btn-primary float-right" href="${level1part8}" role="button">
                                 <spring:message code="levels.nextTheme"/>
                             </a>
                         </div>
@@ -204,7 +150,7 @@
 
                     var dataPayload = {"code": code};
 
-                    $.post('http://localhost:8080/level1part2compile', JSON.stringify(dataPayload))
+                    $.post('http://localhost:8080/level1part7compile', JSON.stringify(dataPayload))
                         .done(function (response) {
 
                             compileAnswer.setValue(response["answer"]);
@@ -228,4 +174,3 @@
     </jsp:body>
 
 </page:template>
-

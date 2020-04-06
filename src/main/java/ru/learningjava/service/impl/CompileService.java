@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Service;
-import ru.learningjava.ui.model.response.CompilerRest;
+import ru.learningjava.ui.model.request.CompilerRest;
+import ru.learningjava.ui.model.response.JdoodleResponse;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -35,12 +36,13 @@ public class CompileService {
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Content-Type", "application/json");
 
-            code = code.replaceAll("\r\n", "\\\\n");
-            code = code.replaceAll("\"", "\\\\\"");
-            code = code.replaceAll("\t", "\\\\t");
+            JdoodleResponse response = new JdoodleResponse();
+            response.setScript(code);
 
-            String input = "{\"clientId\": \"" + clientId + "\",\"clientSecret\":\"" + clientSecret + "\",\"script\":\"" + code +
-                    "\",\"language\":\"" + language + "\",\"versionIndex\":\"" + versionIndex + "\"} ";
+            Gson gson = new Gson();
+            String input = gson.toJson(response);
+
+            System.out.println(input);
 
             OutputStream outputStream = connection.getOutputStream();
             outputStream.write(input.getBytes());
@@ -67,7 +69,7 @@ public class CompileService {
 
             connection.disconnect();
 
-            compilerRest = new Gson().fromJson(result.toString(), CompilerRest.class);
+            compilerRest = gson.fromJson(result.toString(), CompilerRest.class);
             compilerRest.setOutput(compilerRest.getOutput().trim());
 
             return compilerRest;
