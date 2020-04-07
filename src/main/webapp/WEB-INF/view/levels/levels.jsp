@@ -93,6 +93,24 @@
                     </a>
                 </div>
 
+                <c:url value="/level1part9.html" var="level1part9"/>
+                <div class="col-lg-12" style="padding-bottom: 15px;">
+                    <a href="${level1part9}">
+                        <h3>
+                            <spring:message code="levels.level1.part9.return"/>
+                        </h3>
+                    </a>
+                </div>
+
+                <c:url value="/level1part10.html" var="level1part10"/>
+                <div class="col-lg-12" style="padding-bottom: 15px;">
+                    <a href="${level1part10}">
+                        <h3>
+                            <spring:message code="levels.level1.part10"/>
+                        </h3>
+                    </a>
+                </div>
+
             </div>
 
         </div>

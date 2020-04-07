@@ -6,7 +6,6 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 import ru.learningjava.service.impl.CompileService;
 import ru.learningjava.ui.model.request.CompileRequestModel;
 import ru.learningjava.ui.model.response.CompileStatusModel;
@@ -184,6 +183,56 @@ public class RestLevelsCompileController {
         }
 
         return setCompileAnswer(returnValue, "isPositive = false");
+    }
+
+    @PostMapping(value = "/level1part9compile", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public CompileStatusModel compileLevel1Part9Compile(@RequestBody CompileRequestModel compileRequestModel) {
+
+        String code = compileRequestModel.getCode();
+
+        CompileStatusModel returnValue = setCompileCode(code);
+
+        if (code.isEmpty()) {
+            return setCompileStatusAnswer(returnValue, "levels.empty");
+        } else if (!code.contains("public static String isLove(boolean n)")) {
+            return setCompileStatusAnswer(returnValue, "levels.level1.part9.task.error1");
+        } else if (!code.contains("I love Java")) {
+            return setCompileStatusAnswer(returnValue, "levels.level1.part9.task.error2");
+        } else if (!code.contains("I dont love Java :C")) {
+            return setCompileStatusAnswer(returnValue, "levels.level1.part9.task.error3");
+        } else if (!code.contains("System.out.println(isLove(true));")) {
+            return setCompileStatusAnswer(returnValue, "levels.level1.part9.task.error4");
+        }
+
+        return setCompileAnswer(returnValue, "I love Java");
+    }
+
+    @PostMapping(value = "/level1part10compile", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public CompileStatusModel compileLevel1Part10Compile(@RequestBody CompileRequestModel compileRequestModel) {
+
+        String code = compileRequestModel.getCode();
+
+        CompileStatusModel returnValue = setCompileCode(code);
+
+        if (code.isEmpty()) {
+            return setCompileStatusAnswer(returnValue, "levels.empty");
+        } else if (!code.contains("public static void checkNumber(int n)")) {
+            return setCompileStatusAnswer(returnValue, "levels.level1.part10.task.error1");
+        } else if (!code.contains("even")) {
+            return setCompileStatusAnswer(returnValue, "levels.level1.part10.task.error2");
+        } else if (!code.contains("odd")) {
+            return setCompileStatusAnswer(returnValue, "levels.level1.part10.task.error3");
+        } else if (!code.contains("checkNumber(1);") && !code.contains("checkNumber(2);") &&
+                !code.contains("checkNumber(5);") && !code.contains("checkNumber(4);")) {
+            return setCompileStatusAnswer(returnValue, "levels.level1.part10.task.error4");
+        } else if (!code.contains("switch")) {
+            return setCompileStatusAnswer(returnValue, "levels.level1.part10.task.error5");
+        }
+
+        return setCompileAnswer(returnValue, "odd\n" +
+                "even\n" +
+                "odd\n" +
+                "even");
     }
 
     public CompileStatusModel setCompileCode(String code) {

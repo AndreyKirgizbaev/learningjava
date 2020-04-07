@@ -124,4 +124,43 @@ public class Level1Controller {
 
         return modelAndView;
     }
+
+    @RequestMapping(value = "/level1part9.html", method = RequestMethod.GET)
+    public ModelAndView loadPart9Page() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/level1/level1part9");
+
+        String code = "public class Main {\n" +
+                "    public static void main(String[] args) {\n" +
+                "       System.out.println(isLove(true));\n" +
+                "    }\n" +
+                "   \n" +
+                "   \n" +
+                "   \n" +
+                "}";
+        modelAndView.addObject("code", code);
+
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/level1part10.html", method = RequestMethod.GET)
+    public ModelAndView loadPart10Page() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/level1/level1part10");
+
+        String code = "public class Main {\n" +
+                "    public static void main(String[] args) {\n" +
+                "       checkNumber(1);\n" +
+                "       checkNumber(2);\n" +
+                "       checkNumber(5);\n" +
+                "       checkNumber(4);\n" +
+                "    }\n" +
+                "   \n" +
+                "   \n" +
+                "   \n" +
+                "}";
+        modelAndView.addObject("code", code);
+
+        return modelAndView;
+    }
 }
