@@ -21,6 +21,12 @@
 
 	<dependencies>
 
+		<!-- HOT Reload -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+
 		<!-- JSP -->
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
