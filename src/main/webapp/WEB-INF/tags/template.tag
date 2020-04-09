@@ -13,13 +13,18 @@
         <jsp:invoke fragment="title"/>
     </title>
 
-    <!-- Bootstrap Core CSS -->
-    <spring:url value="/resources/css/bootstrap.min.css" var="bootstrap"/>
-    <link href="${bootstrap}" rel="stylesheet"/>
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap&subset=cyrillic" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <spring:url value="/resources/css/modern-business.css" var="modernbusiness"/>
-    <link href="${modernbusiness}" rel="stylesheet"/>
+    <!-- CSS -->
+    <link href="/resources/css/common.css" rel="stylesheet"/>
+    <link href="/resources/css/header.css" rel="stylesheet"/>
+    <link href="/resources/css/footer.css" rel="stylesheet"/>
+
+    <link href="/resources/css/index.css" rel="stylesheet"/>
+    <link href="/resources/css/java.css" rel="stylesheet"/>
+    <link href="/resources/css/books.css" rel="stylesheet"/>
+    <link href="/resources/css/levels.css" rel="stylesheet"/>
 
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.js"
@@ -54,21 +59,23 @@
 <body>
 
 
-<headerTemplate:header-template/>
+    <headerTemplate:header-template/>
 
-<jsp:doBody/>
-
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <a href="<%=request.getContextPath()%>?languageVar=en">EN</a>
-                <a href="<%=request.getContextPath()%>?languageVar=ru">RU</a>
-                <p>© 2020 Copyright by Andrey Kirgizbaev</p>
+    <div class="page">
+        <div class="page__c">
+            <jsp:doBody/>
+            <div class="footer">
+                <div class="footer__c">
+                    <div class="footer__c__links">
+                        <a class="link-blue" href="<%=request.getContextPath()%>?languageVar=en">EN</a>
+                        <a class="link-blue" href="<%=request.getContextPath()%>?languageVar=ru">RU</a>
+                    </div>
+                    <p>© 2020 Copyright by Andrey Kirgizbaev</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</footer>
 
 </body>
 

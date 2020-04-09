@@ -1,0 +1,18 @@
+.footer{
+    margin: 0 auto;
+    margin-top: 60px;
+    margin-bottom: 60px;
+
+}
+.footer__c{
+
+}
+.footer__c__links{
+    display: flex;
+    flex-direction: row;
+
+}
+.footer__c__links a{
+    text-decoration: none;
+    margin-right: 5px;
+}

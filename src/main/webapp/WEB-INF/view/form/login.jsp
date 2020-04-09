@@ -10,8 +10,8 @@
     <title>Login Page</title>
     <spring:url value="/resources/css/bootstrap.min.css" var="bootstrap" />
     <spring:url value="/resources/css/signin.css" var="signin" />
-    <link href="${bootstrap}" rel="stylesheet" />
     <link href="${signin}" rel="stylesheet" />
+
 </head>
 <body>
 <form name="form" action="j_spring_security_check" method="post" class="form-signin">

@@ -11,112 +11,102 @@
 
     <jsp:body>
 
-        <div class="container">
+    <div class="page__c__title">
+        <h1>
+            <spring:message code="books.introMsg"/>
+        </h1>
+    </div>
 
-            <div class="row">
+    <h2>
+        <spring:message code="books.newbie"/>
+    </h2>
 
-                <div class="col-lg-12">
-                    <h1 class="pb-2 mt-4 mb-2 border-bottom">
-                        <spring:message code="books.introMsg"/>
-                    </h1>
-                </div>
+    <h4>
+        <span style="font-size: 20px;  color: #ba7f49;">
+            <i class="fas fa-book"></i>
+        </span>
+        <spring:message code="books.newbie.book1"/>
+    </h4>
 
-                <div class="col-lg-12">
+    <p>
+        <spring:message code="books.newbie.about1"/>
+    </p>
 
-                    <h2>
-                        <spring:message code="books.newbie"/>
-                    </h2>
+    <h4>
+        <span style="font-size: 20px;  color: #ba7f49;">
+            <i class="fas fa-book"></i>
+        </span>
+        <spring:message code="books.newbie.book2"/>
+    </h4>
 
-                    <h4>
-                        <span style="font-size: 20px;  color: #ba7f49;">
-                            <i class="fas fa-book"></i>
-                        </span>
-                        <spring:message code="books.newbie.book1"/>
-                    </h4>
+    <p>
+        <spring:message code="books.newbie.about2"/>
+    </p>
 
-                    <p>
-                        <spring:message code="books.newbie.about1"/>
-                    </p>
+    <h4>
+        <span style="font-size: 20px;  color: #ba7f49;">
+            <i class="fas fa-book"></i>
+        </span>
+        <spring:message code="books.newbie.book3"/>
+    </h4>
 
-                    <h4>
-                        <span style="font-size: 20px;  color: #ba7f49;">
-                            <i class="fas fa-book"></i>
-                        </span>
-                        <spring:message code="books.newbie.book2"/>
-                    </h4>
+    <p class="p-b-15">
+        <spring:message code="books.newbie.about3"/>
+    </p>
 
-                    <p>
-                        <spring:message code="books.newbie.about2"/>
-                    </p>
+    <h2>
+        <spring:message code="books.mid"/>
+    </h2>
 
-                    <h4>
-                        <span style="font-size: 20px;  color: #ba7f49;">
-                            <i class="fas fa-book"></i>
-                        </span>
-                        <spring:message code="books.newbie.book3"/>
-                    </h4>
+    <h4>
+        <span style="font-size: 20px;  color: #ba7f49;">
+            <i class="fas fa-book"></i>
+        </span>
+        <spring:message code="books.mid.book1"/>
+    </h4>
 
-                    <p>
-                        <spring:message code="books.newbie.about3"/>
-                    </p>
+    <p>
+        <spring:message code="books.mid.about1"/>
+    </p>
 
-                    <h2>
-                    <spring:message code="books.mid"/>
-                </h2>
+    <h4>
+        <span style="font-size: 20px;  color: #ba7f49;">
+            <i class="fas fa-book"></i>
+        </span>
+        <spring:message code="books.mid.book2"/>
+    </h4>
 
-                    <h4>
-                        <span style="font-size: 20px;  color: #ba7f49;">
-                            <i class="fas fa-book"></i>
-                        </span>
-                        <spring:message code="books.mid.book1"/>
-                    </h4>
+    <p class="p-b-15">
+        <spring:message code="books.mid.about2"/>
+    </p>
 
-                    <p>
-                        <spring:message code="books.mid.about1"/>
-                    </p>
+    <h2>
+        <spring:message code="books.high"/>
+    </h2>
 
-                    <h4>
-                        <span style="font-size: 20px;  color: #ba7f49;">
-                            <i class="fas fa-book"></i>
-                        </span>
-                        <spring:message code="books.mid.book2"/>
-                    </h4>
+    <h4>
+        <span style="font-size: 20px;  color: #ba7f49;">
+            <i class="fas fa-book"></i>
+        </span>
+        <spring:message code="books.high.book1"/>
+    </h4>
 
-                    <p>
-                        <spring:message code="books.mid.about2"/>
-                    </p>
+    <p>
+        <spring:message code="books.high.about1"/>
+    </p>
 
-                    <h2>
-                        <spring:message code="books.high"/>
-                    </h2>
+    <h4>
+        <span style="font-size: 20px;  color: #ba7f49;">
+            <i class="fas fa-book"></i>
+        </span>
+        <spring:message code="books.high.book2"/>
+    </h4>
 
-                    <h4>
-                        <span style="font-size: 20px;  color: #ba7f49;">
-                            <i class="fas fa-book"></i>
-                        </span>
-                        <spring:message code="books.high.book1"/>
-                    </h4>
+    <p>
+        <spring:message code="books.high.about2"/>
+    </p>
 
-                    <p>
-                        <spring:message code="books.high.about1"/>
-                    </p>
 
-                    <h4>
-                        <span style="font-size: 20px;  color: #ba7f49;">
-                            <i class="fas fa-book"></i>
-                        </span>
-                        <spring:message code="books.high.book2"/>
-                    </h4>
-
-                    <p>
-                        <spring:message code="books.high.about2"/>
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
 
     </jsp:body>
 
