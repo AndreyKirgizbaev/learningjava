@@ -17,7 +17,7 @@
         </h1>
     </div>
 
-    <c:url value="/level1part1.html" var="level1part1"/>
+    <c:url value="/level1part1" var="level1part1"/>
     <div class="level-link" style="padding-bottom: 15px;">
         <a href="${level1part1}">
             <span>
@@ -29,7 +29,7 @@
         </a>
     </div>
 
-    <c:url value="/level1part2.html" var="level1part2"/>
+    <c:url value="/level1part2" var="level1part2"/>
     <div class="level-link" style="padding-bottom: 15px;">
         <a href="${level1part2}">
             <span>
@@ -41,7 +41,7 @@
         </a>
     </div>
 
-    <c:url value="/level1part3.html" var="level1part3"/>
+    <c:url value="/level1part3" var="level1part3"/>
     <div class="level-link" style="padding-bottom: 15px;">
         <a href="${level1part3}">
             <span>
@@ -53,7 +53,7 @@
         </a>
     </div>
 
-    <c:url value="/level1part4.html" var="level1part4"/>
+    <c:url value="/level1part4" var="level1part4"/>
     <div class="level-link" style="padding-bottom: 15px;">
         <a href="${level1part4}">
             <span>
@@ -65,7 +65,7 @@
         </a>
     </div>
 
-    <c:url value="/level1part5.html" var="level1part5"/>
+    <c:url value="/level1part5" var="level1part5"/>
     <div class="level-link" style="padding-bottom: 15px;">
         <a href="${level1part5}">
             <span>
@@ -77,7 +77,7 @@
         </a>
     </div>
 
-    <c:url value="/level1part6.html" var="level1part6"/>
+    <c:url value="/level1part6" var="level1part6"/>
     <div class="level-link" style="padding-bottom: 15px;">
         <a href="${level1part6}">
             <span>
@@ -89,7 +89,7 @@
         </a>
     </div>
 
-    <c:url value="/level1part7.html" var="level1part7"/>
+    <c:url value="/level1part7" var="level1part7"/>
     <div class="level-link" style="padding-bottom: 15px;">
         <a href="${level1part7}">
             <span>
@@ -101,7 +101,7 @@
         </a>
     </div>
 
-    <c:url value="/level1part8.html" var="level1part8"/>
+    <c:url value="/level1part8" var="level1part8"/>
     <div class="level-link" style="padding-bottom: 15px;">
         <a href="${level1part8}">
             <span>
@@ -113,7 +113,7 @@
         </a>
     </div>
 
-    <c:url value="/level1part9.html" var="level1part9"/>
+    <c:url value="/level1part9" var="level1part9"/>
     <div class="level-link" style="padding-bottom: 15px;">
         <a href="${level1part9}">
             <span>
@@ -125,7 +125,7 @@
         </a>
     </div>
 
-    <c:url value="/level1part10.html" var="level1part10"/>
+    <c:url value="/level1part10" var="level1part10"/>
     <div class="level-link" style="padding-bottom: 15px;">
         <a href="${level1part10}">
             <span>

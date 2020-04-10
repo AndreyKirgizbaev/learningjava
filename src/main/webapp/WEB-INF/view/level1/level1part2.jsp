@@ -145,9 +145,9 @@
                 <br/>
 
 
-                <c:url value="/level1part1.html" var="level1part1"/>
-                <c:url value="/levels.html" var="levels"/>
-                <c:url value="/level1part3.html" var="level1part3"/>
+                <c:url value="/level1part1" var="level1part1"/>
+                <c:url value="/levels" var="levels"/>
+                <c:url value="/level1part3" var="level1part3"/>
                 <div class="row">
                     <a class="btn btn-blue" href="${level1part1}" role="button">
                         <spring:message code="levels.previousTheme"/>

@@ -51,7 +51,7 @@
                         <spring:message code="content.java"/>
                     </div>
                     <div class="card__btns">
-                        <div class="btn btn-blue" onClick="location.href='/java.html'">
+                        <div class="btn btn-blue" onClick="location.href='/java'">
                             <spring:message code="content.more"/>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
                         <spring:message code="content.books.about"/>
                     </div>
                     <div class="card__btns">
-                        <div class="btn btn-blue" onClick="location.href='/books.html'">
+                        <div class="btn btn-blue" onClick="location.href='/books'">
                             <spring:message code="content.more"/>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
 
             <div class="col col-spacer col-spacer-2"></div>
 
-            <c:url value="/levels.html" var="levels"/>
+            <c:url value="/levels" var="levels"/>
             <div class="col col-1">
                 <div class="card">
                     <div class="card__header">
@@ -98,7 +98,7 @@
                         <spring:message code="content.levels.about"/>
                     </div>
                     <div class="card__btns">
-                        <div class="btn btn-blue" onClick="location.href='/levels.html'">
+                        <div class="btn btn-blue" onClick="location.href='/levels'">
                             <spring:message code="content.more"/>
                         </div>
                     </div>

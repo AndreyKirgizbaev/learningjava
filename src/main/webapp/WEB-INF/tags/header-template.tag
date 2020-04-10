@@ -5,38 +5,30 @@
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 
 
-<%--<c:url value="/file.html" var="file"/>--%>
 
 <nav class="header">
     <div class="header__c">
-        <a href="index.html">
+        <a href="index">
             <div class="header__c__logo">
                 <i class="fab fa-java"></i>
                 <span>LearningJava</span>
             </div>
         </a>
 
-        <!--
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        -->
-
         <div class="header__c__options" id="navbarNav">
-            <c:url value="/java.html" var="java"/>
+            <c:url value="/java" var="java"/>
             <div class="header__c__options__option">
                 <a class="nav-link" href="${java}">Java</a>
             </div>
-            <c:url value="/books.html" var="books"/>
+            <c:url value="/books" var="books"/>
             <div class="header__c__options__option">
                 <a class="nav-link" href="${books}"><spring:message code="navMenu.books"/></a>
             </div>
-            <c:url value="/levels.html" var="levels"/>
+            <c:url value="/levels" var="levels"/>
             <div class="header__c__options__option">
                 <a class="nav-link" href="${levels}"><spring:message code="navMenu.tutorial"/></a>
             </div>
-            <c:url value="/search.html" var="search"/>
+            <c:url value="/search" var="search"/>
             <div class="header__c__options__option">
                 <a class="nav-link" href="${search}"><spring:message code="navMenu.search"/></a>
             </div>
@@ -50,7 +42,7 @@
                     </c:if>
                 </div>
                 <div class="header__c__options__option">
-                    <a class="nav-link" href="<c:url value="/login.html"/>"><spring:message
+                    <a class="nav-link" href="<c:url value="/login"/>"><spring:message
                             code="navMenu.login"/></a>
                 </div>
             </c:if>
@@ -58,9 +50,9 @@
             <c:if test="${isUSer}">
                 <div class="header__c__options__option">
                     <a class="nav-link" style="color: green"><spring:message code="navMenu.existLogin"/></a>
-                    <security:authentication property="principal.username"/> <spring:message
-                        code="navMenu.existLoginRole"/>
-                    <b><security:authentication property="principal.authorities"/></b>
+                    <a class="nav-link"><security:authentication property="principal.username"/></a>
+<%--                    <spring:message code="navMenu.existLoginRole"/>--%>
+<%--                    <b><security:authentication property="principal.authorities"/></b>--%>
 
                 </div>
                 <div class="header__c__options__option">

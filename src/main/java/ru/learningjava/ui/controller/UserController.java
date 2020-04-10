@@ -40,8 +40,8 @@ public class UserController {
             produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public UserRest createUser(@RequestBody UserDetailsRequestModel userDetails) throws UserServiceException {
 
-        if (userDetails.getFirstName().isEmpty())
-            throw new UserServiceException(ErrorMessages.MISSING_REQUIRED_FIELD.getErrorMessage());
+//        if (userDetails.getFirstName().isEmpty())
+//            throw new UserServiceException(ErrorMessages.MISSING_REQUIRED_FIELD.getErrorMessage());
 
         ModelMapper modelMapper = new ModelMapper();
         UserDTO userDto = modelMapper.map(userDetails, UserDTO.class);

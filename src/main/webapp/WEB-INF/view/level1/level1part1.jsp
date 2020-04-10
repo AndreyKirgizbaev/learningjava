@@ -146,8 +146,8 @@
                 <br/>
 
 
-                <c:url value="/levels.html" var="levels"/>
-                <c:url value="/level1part2.html" var="level1part2"/>
+                <c:url value="/levels" var="levels"/>
+                <c:url value="/level1part2" var="level1part2"/>
                 <div class="row">
                     <a class="btn btn-blue btn-levels" href="${levels}" role="button">
                         <spring:message code="levels.introMsg"/>
