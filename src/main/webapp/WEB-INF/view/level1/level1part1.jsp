@@ -177,7 +177,7 @@
                 }else{
                     $('.btn-task').hide()
                 }
-                })
+            })
 
             $('.btn-task').click(function () {
                 $('html, body').animate({scrollTop: $('#task').offset().top - 120 }, 600);

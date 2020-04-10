@@ -35,6 +35,12 @@
 
         <div class="level-c__content">
 
+            <div class="level-c__content__task">
+                <div class="btn btn-blue btn-task">
+                    Перейти к задаче
+                </div>
+            </div>
+
             <div class="page__c__title">
                 <h1>
                     <spring:message code="levels.level1.part4"/>
@@ -242,6 +248,20 @@
 
     <script>
         $(document).ready(function () {
+
+            // Show / hide GoTo task btn on mobile version
+            window.addEventListener('scroll', function() {
+                console.log("document.body.scrollTop = " + document.documentElement.scrollTop)
+                if(document.documentElement.scrollTop < ($('#task').offset().top - window.innerHeight)){
+                    $('.btn-task').show()
+                }else{
+                    $('.btn-task').hide()
+                }
+            })
+
+            $('.btn-task').click(function () {
+                $('html, body').animate({scrollTop: $('#task').offset().top - 120 }, 600);
+            })
 
             $('a[href^="#"]').click(function () {
                 var target = $(this).attr('href');

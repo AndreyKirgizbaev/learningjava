@@ -75,6 +75,8 @@
     left: 0px;
     right: 0px;
     bottom: -1px;
+
+    z-index: 99999;
 }
 
 .row-levels{
