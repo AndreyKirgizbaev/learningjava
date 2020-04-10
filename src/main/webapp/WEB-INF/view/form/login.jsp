@@ -11,6 +11,7 @@
     <spring:url value="/resources/css/bootstrap.min.css" var="bootstrap" />
     <spring:url value="/resources/css/signin.css" var="signin" />
     <link href="${signin}" rel="stylesheet" />
+    <link href="${bootstrap}" rel="stylesheet" />
 
 </head>
 <body>

@@ -83,6 +83,19 @@
     display: none;
 }
 
+.alert{
+    padding: 20px 20px;
+    border-radius: 4px;
+    color: #fff;
+}
+.alert-success{
+    background-color: green;
+}
+.alert-danger{
+    background-color: red;
+}
+
+
 @media screen and (max-width: 600px) {
     .level-c__content__task{
         display: block;
