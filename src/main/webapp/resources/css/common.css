@@ -3,6 +3,9 @@ html, body{
     padding: 0px;
 
     font-family: 'Roboto', sans-serif;
+
+    width: 100%;
+    height: 100%;
 }
 
 .page{
@@ -11,6 +14,16 @@ html, body{
 }
 .page__c{
     padding:0px 80px;
+}
+@media screen and (max-width: 800px) {
+    .page__c{
+        padding: 0px 40px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .page__c{
+        padding: 0px 20px;
+    }
 }
 .page__c__title{
 
@@ -24,6 +37,9 @@ html, body{
     display: flex;
     flex-direction: row;
 }
+.row-wrap{
+    flex-wrap: wrap;
+}
 .col{
     display: flex;
     flex-direction: column;
@@ -34,6 +50,20 @@ html, body{
 
 .col-spacer{
     width:20px;
+}
+@media screen and (max-width: 1085px) {
+    .col-spacer-2{
+        display: none;
+    }
+}
+@media screen and (max-width: 705px) {
+    .col-spacer-1{
+        display: none;
+    }
+
+    .row-wrap .col{
+        min-width: 100%;
+    }
 }
 
 
@@ -62,6 +92,31 @@ p{
 
     padding: 16px 22px;
 }
+@media screen and (max-width: 600px) {
+    .btn{
+        padding: 12px 10px;
+    }
+}
+@media screen and (max-width: 400px) {
+    .btn{
+        font-size: 14px;
+    }
+    .btn-levels{
+        display: none;
+    }
+}
+.btn-auto{
+    flex-grow: 1;
+    flex-basis: 100%;
+
+    justify-content: auto;
+    text-align: center;
+}
+.btn-task{
+    border-radius: 0px;
+    text-align: center;
+    font-size: 18px;
+}
 .btn-black{
     background-color: #222;
     color:#fff;
@@ -88,4 +143,20 @@ p{
 }
 .btn-m-l-auto{
     margin-left: auto;
+}
+
+h4{
+    line-height: 1.5;
+}
+
+@media screen and (max-width: 600px) {
+    .page__c__title h1{
+        font-size: 7vw;
+    }
+    h2{
+        font-size: 6vw;
+    }
+    h3{
+        font-size: 5vw;
+    }
 }

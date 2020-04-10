@@ -13,6 +13,8 @@
         <jsp:invoke fragment="title"/>
     </title>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!-- FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap&subset=cyrillic" rel="stylesheet">
 
@@ -20,6 +22,7 @@
     <link href="/resources/css/common.css" rel="stylesheet"/>
     <link href="/resources/css/header.css" rel="stylesheet"/>
     <link href="/resources/css/footer.css" rel="stylesheet"/>
+    <link href="/resources/css/slideout.css" rel="stylesheet"/>
 
     <link href="/resources/css/index.css" rel="stylesheet"/>
     <link href="/resources/css/java.css" rel="stylesheet"/>
@@ -33,6 +36,7 @@
     <!-- jQuery -->
     <spring:url value="/resources/js/jquery-2.1.4.min.js" var="jqueryjs"/>
     <script src="${jqueryjs}"></script>
+
 
     <!-- Bootstrap Core JavaScript -->
     <spring:url value="/resources/js/bootstrap.min.js" var="js"/>
@@ -54,28 +58,127 @@
     <spring:url value="/resources/codemirror/darcula.css" var="codemirrortheme"/>
     <link href="${codemirrortheme}" rel="stylesheet"/>
 
+    <!-- Slideout -->
+    <spring:url value="/resources/js/slideout.min.js" var="slideoutjs"/>
+    <script src="${slideoutjs}"></script>
+
 </head>
 
 <body>
 
-
-    <headerTemplate:header-template/>
-
-    <div class="page">
-        <div class="page__c">
-            <jsp:doBody/>
-            <div class="footer">
-                <div class="footer__c">
-                    <div class="footer__c__links">
-                        <a class="link-blue" href="<%=request.getContextPath()%>?languageVar=en">EN</a>
-                        <a class="link-blue" href="<%=request.getContextPath()%>?languageVar=ru">RU</a>
+    <nav id="menu">
+        <div class="side-bar">
+            <div class="side-bar__c">
+                <div class="header__c__logo">
+                    <i class="fab fa-java"></i>
+                    <span>LearningJava</span>
+                </div>
+                <div class="side-bar__c__options">
+                    <c:url value="/java.html" var="java"/>
+                    <div class="side-bar__c__options__option">
+                        <a class="nav-link" href="${java}">Java</a>
                     </div>
-                    <p>© 2020 Copyright by Andrey Kirgizbaev</p>
+                    <c:url value="/books.html" var="books"/>
+                    <div class="side-bar__c__options__option">
+                        <a class="nav-link" href="${books}"><spring:message code="navMenu.books"/></a>
+                    </div>
+                    <c:url value="/levels.html" var="levels"/>
+                    <div class="side-bar__c__options__option">
+                        <a class="nav-link" href="${levels}"><spring:message code="navMenu.tutorial"/></a>
+                    </div>
+                    <c:url value="/search.html" var="search"/>
+                    <div class="side-bar__c__options__option">
+                        <a class="nav-link" href="${search}"><spring:message code="navMenu.search"/></a>
+                    </div>
+
+                    <security:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_SUPER_USER', 'ROLE_USER')" var="isUSer"/>
+
+                    <c:if test="${not isUSer}">
+                        <div class="side-bar__c__options__option">
+                            <c:if test="${empty param.error}">
+                                <a class="link link-red"><spring:message code="navMenu.notLogin"/></a>
+                            </c:if>
+                        </div>
+                        <div class="side-bar__c__options__option">
+                            <a class="nav-link" href="<c:url value="/login.html"/>"><spring:message
+                                    code="navMenu.login"/></a>
+                        </div>
+                    </c:if>
+
+                    <c:if test="${isUSer}">
+                        <div class="side-bar__c__options__option">
+                            <a class="nav-link" style="color: green"><spring:message code="navMenu.existLogin"/></a>
+                            <security:authentication property="principal.username"/> <spring:message
+                                code="navMenu.existLoginRole"/>
+                            <b><security:authentication property="principal.authorities"/></b>
+
+                        </div>
+                        <div class="side-bar__c__options__option">
+                            <a class="nav-link" style="color: red;" href="<c:url value="/j_spring_security_logout"/>">
+                                <spring:message
+                                        code="navMenu.logout"/>
+                            </a>
+                        </div>
+                    </c:if>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="panel">
+        <headerTemplate:header-template/>
+
+        <div class="page">
+            <div class="page__c">
+                <jsp:doBody/>
+                <div class="footer">
+                    <div class="footer__c">
+                        <div class="footer__c__links">
+                            <a class="link-blue" href="<%=request.getContextPath()%>?languageVar=en">EN</a>
+                            <a class="link-blue" href="<%=request.getContextPath()%>?languageVar=ru">RU</a>
+                        </div>
+                        <p>© 2020 Copyright by Andrey Kirgizbaev</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
+
+    <script>
+        var slideout = new Slideout({
+            'panel': document.getElementById('panel'),
+            'menu': document.getElementById('menu'),
+            'padding': 256,
+            'tolerance': 70
+        });
+
+        $(".toggle-side-bar").click(function(e){
+            console.log("toggle-side-bar clicked")
+
+            slideout.open()
+        })
+
+        $("#panel").click(function(e){
+            console.log("class = " + e.target)
+            console.log("class = " + $(e.target).attr("class"))
+
+            //  ___________
+            //  (/(.)-(.)\)
+            //  –––––––––––
+
+            if($(e.target).attr("class") == "toggle-side-bar" ||
+               $(e.target).attr("class") == "svg-inline--fa fa-bars fa-w-14" ||
+               $(e.target).is("path")){
+                return
+            }
+
+            if (slideout.isOpen()) {
+                console.log("slideout.close()")
+                slideout.close();
+            }
+        })
+    </script>
 
 </body>
 

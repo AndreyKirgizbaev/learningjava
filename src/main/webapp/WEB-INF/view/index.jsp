@@ -36,7 +36,7 @@
             </p>
         </div>
 
-        <div class="row">
+        <div class="row row-wrap">
             <div class="col col-1">
                 <div class="card">
                     <div class="card__header">
@@ -58,7 +58,7 @@
                 </div>
             </div>
 
-            <div class="col col-spacer" ></div>
+            <div class="col col-spacer col-spacer-1"></div>
 
             <div class="col col-1">
                 <div class="card">
@@ -81,7 +81,7 @@
                 </div>
             </div>
 
-            <div class="col col-spacer" ></div>
+            <div class="col col-spacer col-spacer-2"></div>
 
             <c:url value="/levels.html" var="levels"/>
             <div class="col col-1">

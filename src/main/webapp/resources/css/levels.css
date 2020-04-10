@@ -37,6 +37,8 @@
 .level-c__content{
     display: flex;
     flex-direction: column;
+
+    max-width: 100%;
 }
 
 .level-link{
@@ -57,4 +59,37 @@
     font-size: 26px;
 
     display:table;
+}
+
+@media screen and (max-width: 1100px) {
+    .level-c__menu{
+        display: none;
+    }
+}
+
+
+
+.level-c__content__task{
+    display: none;
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    bottom: -1px;
+}
+
+.row-levels{
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .level-c__content__task{
+        display: block;
+    }
+}
+@media screen and (max-width: 400px) {
+    .row-levels{
+        margin-top:20px;
+        display: flex;
+        justify-content: center;
+    }
 }

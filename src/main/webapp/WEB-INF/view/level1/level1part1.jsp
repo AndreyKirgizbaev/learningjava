@@ -37,6 +37,11 @@
         </div>
 
         <div class="level-c__content">
+            <div class="level-c__content__task">
+                <div class="btn btn-blue btn-task">
+                    Перейти к задаче
+                </div>
+            </div>
 
             <div class="page__c__title">
                 <h1>
@@ -144,11 +149,16 @@
                 <c:url value="/levels.html" var="levels"/>
                 <c:url value="/level1part2.html" var="level1part2"/>
                 <div class="row">
-                    <a class="btn btn-blue" href="${levels}" role="button">
+                    <a class="btn btn-blue btn-levels" href="${levels}" role="button">
                         <spring:message code="levels.introMsg"/>
                     </a>
                     <a class="btn btn-blue btn-m-l-auto" href="${level1part2}" role="button">
                         <spring:message code="levels.nextTheme"/>
+                    </a>
+                </div>
+                <div class="row row-levels">
+                    <a class="btn btn-blue btn-auto" href="${levels}" role="button">
+                        <spring:message code="levels.introMsg"/>
                     </a>
                 </div>
 
@@ -158,6 +168,20 @@
 
     <script>
         $(document).ready(function () {
+
+            // Show / hide GoTo task btn on mobile version
+            window.addEventListener('scroll', function() {
+                console.log("document.body.scrollTop = " + document.documentElement.scrollTop)
+                if(document.documentElement.scrollTop < ($('#task').offset().top - window.innerHeight)){
+                    $('.btn-task').show()
+                }else{
+                    $('.btn-task').hide()
+                }
+                })
+
+            $('.btn-task').click(function () {
+                $('html, body').animate({scrollTop: $('#task').offset().top - 120 }, 600);
+            })
 
             $('a[href^="#"]').click(function () {
                 var target = $(this).attr('href');

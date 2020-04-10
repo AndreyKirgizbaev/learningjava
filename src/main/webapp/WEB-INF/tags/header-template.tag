@@ -72,5 +72,9 @@
             </c:if>
 
         </div>
+
+        <div class="toggle-side-bar">
+            <i style="color:#ccc;" class="fas fa-bars"></i>
+        </div>
     </div>
 </nav>

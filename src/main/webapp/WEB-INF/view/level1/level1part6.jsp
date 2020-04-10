@@ -157,11 +157,16 @@
                     <a class="btn btn-blue" href="${level1part5}" role="button">
                         <spring:message code="levels.previousTheme"/>
                     </a>
-                    <a class="btn btn-blue btn-m-l-auto" href="${levels}" role="button">
+                    <a class="btn btn-blue btn-m-l-auto btn-levels" href="${levels}" role="button">
                         <spring:message code="levels.introMsg"/>
                     </a>
                     <a class="btn btn-blue btn-m-l-auto" href="${level1part7}" role="button">
                         <spring:message code="levels.nextTheme"/>
+                    </a>
+                </div>
+                <div class="row row-levels">
+                    <a class="btn btn-blue btn-auto" href="${levels}" role="button">
+                        <spring:message code="levels.introMsg"/>
                     </a>
                 </div>
 
