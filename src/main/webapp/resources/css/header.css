@@ -5,6 +5,8 @@
     left: 0px;
     right: 0px;
     top: 0px;
+
+    z-index: 99999;
 }
 .header__c{
     padding: 20px 80px;
