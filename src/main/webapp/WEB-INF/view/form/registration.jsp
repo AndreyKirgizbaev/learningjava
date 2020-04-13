@@ -8,6 +8,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login Page</title>
     <spring:url value="/resources/css/bootstrap.min.css" var="bootstrap" />
     <spring:url value="/resources/css/signin.css" var="signin" />

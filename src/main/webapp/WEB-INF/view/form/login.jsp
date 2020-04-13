@@ -9,6 +9,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login Page</title>
     <spring:url value="/resources/css/bootstrap.min.css" var="bootstrap"/>
     <spring:url value="/resources/css/signin.css" var="signin"/>
@@ -18,13 +19,6 @@
 <body>
 <form name="form" action="j_spring_security_check" method="post" class="form-signin">
     <security:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_SUPER_USER', 'ROLE_USER')" var="isUSer"/>
-    <span style="font-size: x-small; color: red; ">
-        <c:if test="${not isUSer}">
-            <c:if test="${empty param.error}">
-                Вы не вошли
-            </c:if>
-        </c:if>
-    </span>
 
     <span style="font-size: x-small; color: green; ">
         <c:if test="${isUSer}">Вы вошли как:
