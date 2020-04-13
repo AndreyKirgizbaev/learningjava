@@ -152,14 +152,11 @@
         });
 
         $(".toggle-side-bar").click(function(e){
-            console.log("toggle-side-bar clicked")
 
             slideout.open()
         })
 
         $("#panel").click(function(e){
-            console.log("class = " + e.target)
-            console.log("class = " + $(e.target).attr("class"))
 
             //  ___________
             //  (/(.)-(.)\)
@@ -172,7 +169,6 @@
             }
 
             if (slideout.isOpen()) {
-                console.log("slideout.close()")
                 slideout.close();
             }
         })

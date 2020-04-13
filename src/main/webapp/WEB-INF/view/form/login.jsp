@@ -17,7 +17,7 @@
     <link href="${signin}" rel="stylesheet"/>
 </head>
 <body>
-<form name="form" action="j_spring_security_check" method="post" class="form-signin">
+<form name="form" action="spring_security_check" method="post" class="form-signin">
     <security:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_SUPER_USER', 'ROLE_USER')" var="isUSer"/>
 
     <span style="font-size: x-small; color: green; ">
@@ -34,10 +34,10 @@
     <h2 class="form-signin-heading"><spring:message code="login.main"/></h2>
 
     <label for="inputEmail" class="sr-only"><spring:message code="registration.username"/></label>
-    <input id="inputEmail" class="form-control" name="j_username" required autofocus/>
+    <input id="inputEmail" class="form-control" name="username" required autofocus/>
 
     <label for="inputPassword" class="sr-only"><spring:message code="registration.password"/></label>
-    <input type="password" id="inputPassword" class="form-control" name="j_password" required/>
+    <input type="password" id="inputPassword" class="form-control" name="password" required/>
 
     <div class="checkbox">
         <label>
