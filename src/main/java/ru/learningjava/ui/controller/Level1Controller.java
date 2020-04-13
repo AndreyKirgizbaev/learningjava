@@ -3,12 +3,10 @@ package ru.learningjava.ui.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.MessageSource;
-import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import ru.learningjava.service.impl.CompileService;
-import ru.learningjava.ui.model.request.CompilerRest;
 
 @Controller
 public class Level1Controller {
@@ -20,7 +18,7 @@ public class Level1Controller {
     @Qualifier("messageSource")
     MessageSource messageSource;
 
-    @RequestMapping(value = "/level1part1.html", method = RequestMethod.GET)
+    @RequestMapping(value = "/level1part1", method = RequestMethod.GET)
     public ModelAndView loadPart1Page() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/level1/level1part1");
@@ -28,7 +26,7 @@ public class Level1Controller {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/level1part2.html", method = RequestMethod.GET)
+    @RequestMapping(value = "/level1part2", method = RequestMethod.GET)
     public ModelAndView loadPart2Page() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/level1/level1part2");
@@ -36,7 +34,7 @@ public class Level1Controller {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/level1part3.html", method = RequestMethod.GET)
+    @RequestMapping(value = "/level1part3", method = RequestMethod.GET)
     public ModelAndView loadPart3Page() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/level1/level1part3");
@@ -46,7 +44,7 @@ public class Level1Controller {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/level1part4.html", method = RequestMethod.GET)
+    @RequestMapping(value = "/level1part4", method = RequestMethod.GET)
     public ModelAndView loadPart4Page() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/level1/level1part4");
@@ -61,7 +59,7 @@ public class Level1Controller {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/level1part5.html", method = RequestMethod.GET)
+    @RequestMapping(value = "/level1part5", method = RequestMethod.GET)
     public ModelAndView loadPart5Page() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/level1/level1part5");
@@ -79,7 +77,7 @@ public class Level1Controller {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/level1part6.html", method = RequestMethod.GET)
+    @RequestMapping(value = "/level1part6", method = RequestMethod.GET)
     public ModelAndView loadPart6Page() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/level1/level1part6");
@@ -95,7 +93,7 @@ public class Level1Controller {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/level1part7.html", method = RequestMethod.GET)
+    @RequestMapping(value = "/level1part7", method = RequestMethod.GET)
     public ModelAndView loadPart7Page() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/level1/level1part7");
@@ -110,7 +108,7 @@ public class Level1Controller {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/level1part8.html", method = RequestMethod.GET)
+    @RequestMapping(value = "/level1part8", method = RequestMethod.GET)
     public ModelAndView loadPart8Page() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/level1/level1part8");
@@ -125,7 +123,7 @@ public class Level1Controller {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/level1part9.html", method = RequestMethod.GET)
+    @RequestMapping(value = "/level1part9", method = RequestMethod.GET)
     public ModelAndView loadPart9Page() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/level1/level1part9");
@@ -143,7 +141,7 @@ public class Level1Controller {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/level1part10.html", method = RequestMethod.GET)
+    @RequestMapping(value = "/level1part10", method = RequestMethod.GET)
     public ModelAndView loadPart10Page() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/level1/level1part10");

@@ -11,228 +11,258 @@
 
     <jsp:body>
 
-        <div class="container">
+    <div class="level-c">
 
-            <div class="row">
+    <div class="level-c__menu">
+        <div class="level-c__menu__c">
+            <a class="list-group-item list-group-item-action" href="#if">
+                <spring:message code="levels.level1.part8.if"/>
+            </a>
+            <a class="list-group-item list-group-item-action" href="#boolean">
+                <spring:message code="levels.level1.part8.boolean"/>
+            </a>
+            <a class="list-group-item list-group-item-action" href="#task">
+                <spring:message code="levels.task"/>
+            </a>
+        </div>
+    </div>
 
-                <div class="col-lg-12">
-                    <h1 class="pb-2 mt-4 mb-2 border-bottom">
-                        <spring:message code="levels.level1.part8"/>
-                    </h1>
+    <div class="level-c__content">
+
+        <div class="level-c__content__task">
+            <div class="btn btn-blue btn-task">
+                Перейти к задаче
+            </div>
+        </div>
+
+        <div class="page__c__title">
+            <h1>
+                <spring:message code="levels.level1.part8"/>
+            </h1>
+        </div>
+
+        <div class="col-2"></div>
+
+            <div class="col-10">
+
+                <h3 id="if">
+                    <spring:message code="levels.level1.part8.if"/>
+                </h3>
+                <p>
+                    <spring:message code="levels.level1.part8.if.about1"/>
+                </p>
+                <form>
+                    <textarea class="java-code"><spring:message
+                            code="levels.level1.part8.if.about2"/></textarea>
+                </form>
+                <br/>
+                <p>
+                    <spring:message code="levels.level1.part8.if.about3"/>
+                </p>
+
+                <h3 id="if">
+                    <spring:message code="levels.level1.part8.if.about4"/>
+                </h3>
+                <form>
+                    <textarea class="java-code"><spring:message
+                            code="levels.level1.part8.if.about5"/></textarea>
+                </form>
+                <br/>
+
+                <p>
+                    <spring:message code="levels.level1.part8.if.about6"/>
+                </p>
+                <form>
+                    <textarea class="java-code"><spring:message
+                            code="levels.level1.part8.if.about7"/></textarea>
+                </form>
+                <br/>
+
+                <h3 id="if">
+                    <spring:message code="levels.level1.part8.if.about8"/>
+                </h3>
+                <form>
+                    <textarea class="java-code"><spring:message
+                            code="levels.level1.part8.if.about9"/></textarea>
+                </form>
+                <br/>
+
+                <p>
+                    <spring:message code="levels.level1.part8.if.about6"/>
+                </p>
+                <form>
+                    <textarea class="java-code"><spring:message
+                            code="levels.level1.part8.if.about10"/></textarea>
+                </form>
+                <br/>
+
+                <h3 id="if">
+                    <spring:message code="levels.level1.part8.if.about11"/>
+                </h3>
+                <p>
+                    <spring:message code="levels.level1.part8.if.about12"/>
+                </p>
+                <form>
+                    <textarea class="java-code"><spring:message
+                            code="levels.level1.part8.if.about13"/></textarea>
+                </form>
+                <br/>
+
+                <p>
+                    <spring:message code="levels.level1.part8.if.about6"/>
+                </p>
+                <form>
+                    <textarea class="java-code"><spring:message
+                            code="levels.level1.part8.if.about14"/></textarea>
+                </form>
+                <br/>
+
+                <p>
+                    <spring:message code="levels.level1.part8.if.about15"/>
+                </p>
+
+                <h3 id="boolean">
+                    <spring:message code="levels.level1.part8.boolean"/>
+                </h3>
+                <p>
+                    <spring:message code="levels.level1.part8.boolean.about1"/>
+                </p>
+                <form>
+                    <textarea class="java-code"><spring:message
+                            code="levels.level1.part8.boolean.about2"/></textarea>
+                </form>
+                <br/>
+
+                <p>
+                    <spring:message code="levels.level1.part8.boolean.about3"/>
+                </p>
+                <form>
+                    <textarea class="java-code"><spring:message
+                            code="levels.level1.part8.boolean.about4"/></textarea>
+                </form>
+                <br/>
+
+                <p>
+                    <spring:message code="levels.level1.part8.boolean.about5"/>
+                </p>
+                <p>
+                    <spring:message code="levels.level1.part8.boolean.about6"/>
+                </p>
+                <p>
+                    <spring:message code="levels.level1.part8.boolean.about7"/>
+                </p>
+                <form>
+                    <textarea class="java-code"><spring:message
+                            code="levels.level1.part8.boolean.about8"/></textarea>
+                </form>
+                <br/>
+
+                <p>
+                    <spring:message code="levels.level1.part8.boolean.about9"/>
+                </p>
+                <form>
+                    <textarea class="java-code"><spring:message
+                            code="levels.level1.part8.boolean.about10"/></textarea>
+                </form>
+                <br/>
+
+                <p>
+                    <spring:message code="levels.level1.part8.boolean.about11"/>
+                </p>
+                <p>
+                    <spring:message code="levels.level1.part8.boolean.about12"/>
+                </p>
+                <form>
+                    <textarea class="java-code"><spring:message
+                            code="levels.level1.part8.boolean.about13"/></textarea>
+                </form>
+                <br/>
+
+                <p>
+                    <spring:message code="levels.level1.part8.boolean.about14"/>
+                </p>
+
+                <h3 id="task">
+                    <spring:message code="levels.task"/>
+                </h3>
+
+                <p><spring:message code="levels.level1.part8.task"/></p>
+                <form>
+                    <textarea class="java-code"><spring:message
+                            code="levels.level1.part8.task.about"/></textarea>
+                </form>
+                <br/>
+
+                <p><spring:message code="levels.solve"/></p>
+                <form>
+                    <textarea id="java-editor" name='code'><c:out value="${code}"/></textarea>
+                </form>
+                <div class="text-center" style="padding-top: 20px">
+                    <input type="button" class="btn btn-black" id="compile"
+                           value="<spring:message code="levels.compile"/>">
                 </div>
 
-                <div class="col-1 scroll">
-                    <div id="list-example" class="list-group">
-                        <a class="list-group-item list-group-item-action" href="#if">
-                            <spring:message code="levels.level1.part8.if"/>
-                        </a>
-                        <a class="list-group-item list-group-item-action" href="#boolean">
-                            <spring:message code="levels.level1.part8.boolean"/>
-                        </a>
-                        <a class="list-group-item list-group-item-action" href="#task">
-                            <spring:message code="levels.task"/>
-                        </a>
-                    </div>
+                <br/>
+                <form>
+                    <textarea id="answer">${answer}</textarea>
+                </form>
+                <br/>
+                <p class="alert alert-success" id="correctAnswer" style="display:none"><spring:message
+                        code="levels.true"/></p>
+                <p class="alert alert-danger" id="wrongAnswer" style="display:none"><spring:message
+                        code="levels.false"/></p>
+                <br/>
+
+
+                <c:url value="/level1part7" var="level1part7"/>
+                <c:url value="/levels" var="levels"/>
+                <c:url value="/level1part9" var="level1part9"/>
+                <div class="row">
+                    <a class="btn btn-blue" href="${level1part7}" role="button">
+                        <spring:message code="levels.previousTheme"/>
+                    </a>
+                    <a class="btn btn-blue btn-m-l-auto btn-levels" href="${levels}" role="button">
+                        <spring:message code="levels.introMsg"/>
+                    </a>
+                    <a class="btn btn-blue btn-m-l-auto" href="${level1part9}" role="button">
+                        <spring:message code="levels.nextTheme"/>
+                    </a>
                 </div>
-
-                <div class="col-2"></div>
-
-                <div class="col-10">
-
-                    <h3 id="if">
-                        <spring:message code="levels.level1.part8.if"/>
-                    </h3>
-                    <p>
-                        <spring:message code="levels.level1.part8.if.about1"/>
-                    </p>
-                    <form>
-                        <textarea class="java-code"><spring:message
-                                code="levels.level1.part8.if.about2"/></textarea>
-                    </form>
-                    <br/>
-                    <p>
-                        <spring:message code="levels.level1.part8.if.about3"/>
-                    </p>
-
-                    <h3 id="if">
-                        <spring:message code="levels.level1.part8.if.about4"/>
-                    </h3>
-                    <form>
-                        <textarea class="java-code"><spring:message
-                                code="levels.level1.part8.if.about5"/></textarea>
-                    </form>
-                    <br/>
-
-                    <p>
-                        <spring:message code="levels.level1.part8.if.about6"/>
-                    </p>
-                    <form>
-                        <textarea class="java-code"><spring:message
-                                code="levels.level1.part8.if.about7"/></textarea>
-                    </form>
-                    <br/>
-
-                    <h3 id="if">
-                        <spring:message code="levels.level1.part8.if.about8"/>
-                    </h3>
-                    <form>
-                        <textarea class="java-code"><spring:message
-                                code="levels.level1.part8.if.about9"/></textarea>
-                    </form>
-                    <br/>
-
-                    <p>
-                        <spring:message code="levels.level1.part8.if.about6"/>
-                    </p>
-                    <form>
-                        <textarea class="java-code"><spring:message
-                                code="levels.level1.part8.if.about10"/></textarea>
-                    </form>
-                    <br/>
-
-                    <h3 id="if">
-                        <spring:message code="levels.level1.part8.if.about11"/>
-                    </h3>
-                    <p>
-                        <spring:message code="levels.level1.part8.if.about12"/>
-                    </p>
-                    <form>
-                        <textarea class="java-code"><spring:message
-                                code="levels.level1.part8.if.about13"/></textarea>
-                    </form>
-                    <br/>
-
-                    <p>
-                        <spring:message code="levels.level1.part8.if.about6"/>
-                    </p>
-                    <form>
-                        <textarea class="java-code"><spring:message
-                                code="levels.level1.part8.if.about14"/></textarea>
-                    </form>
-                    <br/>
-
-                    <p>
-                        <spring:message code="levels.level1.part8.if.about15"/>
-                    </p>
-
-                    <h3 id="boolean">
-                        <spring:message code="levels.level1.part8.boolean"/>
-                    </h3>
-                    <p>
-                        <spring:message code="levels.level1.part8.boolean.about1"/>
-                    </p>
-                    <form>
-                        <textarea class="java-code"><spring:message
-                                code="levels.level1.part8.boolean.about2"/></textarea>
-                    </form>
-                    <br/>
-
-                    <p>
-                        <spring:message code="levels.level1.part8.boolean.about3"/>
-                    </p>
-                    <form>
-                        <textarea class="java-code"><spring:message
-                                code="levels.level1.part8.boolean.about4"/></textarea>
-                    </form>
-                    <br/>
-
-                    <p>
-                        <spring:message code="levels.level1.part8.boolean.about5"/>
-                    </p>
-                    <p>
-                        <spring:message code="levels.level1.part8.boolean.about6"/>
-                    </p>
-                    <p>
-                        <spring:message code="levels.level1.part8.boolean.about7"/>
-                    </p>
-                    <form>
-                        <textarea class="java-code"><spring:message
-                                code="levels.level1.part8.boolean.about8"/></textarea>
-                    </form>
-                    <br/>
-
-                    <p>
-                        <spring:message code="levels.level1.part8.boolean.about9"/>
-                    </p>
-                    <form>
-                        <textarea class="java-code"><spring:message
-                                code="levels.level1.part8.boolean.about10"/></textarea>
-                    </form>
-                    <br/>
-
-                    <p>
-                        <spring:message code="levels.level1.part8.boolean.about11"/>
-                    </p>
-                    <p>
-                        <spring:message code="levels.level1.part8.boolean.about12"/>
-                    </p>
-                    <form>
-                        <textarea class="java-code"><spring:message
-                                code="levels.level1.part8.boolean.about13"/></textarea>
-                    </form>
-                    <br/>
-
-                    <p>
-                        <spring:message code="levels.level1.part8.boolean.about14"/>
-                    </p>
-
-                    <h3 id="task">
-                        <spring:message code="levels.task"/>
-                    </h3>
-
-                    <p><spring:message code="levels.level1.part8.task"/></p>
-                    <form>
-                        <textarea class="java-code"><spring:message
-                                code="levels.level1.part8.task.about"/></textarea>
-                    </form>
-                    <br/>
-
-                    <p><spring:message code="levels.solve"/></p>
-                    <form>
-                        <textarea id="java-editor" name='code'><c:out value="${code}"/></textarea>
-                    </form>
-                    <div class="text-center" style="padding-top: 5px">
-                        <input type="button" class="btn btn-dark" id="compile"
-                               value="<spring:message code="levels.compile"/>">
-                    </div>
-
-                    <br/>
-                    <form>
-                        <textarea id="answer">${answer}</textarea>
-                    </form>
-                    <br/>
-                    <p class="alert alert-success" id="correctAnswer" style="display:none"><spring:message
-                            code="levels.true"/></p>
-                    <p class="alert alert-danger" id="wrongAnswer" style="display:none"><spring:message
-                            code="levels.false"/></p>
-                    <br/>
-
-
-                    <c:url value="/level1part7.html" var="level1part7"/>
-                    <c:url value="/levels.html" var="levels"/>
-                    <c:url value="/level1part9.html" var="level1part9"/>
-                    <div class="col-lg-12  reverse">
-                        <div class="text-center">
-                            <a class="btn btn-primary float-left" href="${level1part7}" role="button">
-                                <spring:message code="levels.previousTheme"/>
-                            </a>
-                            <a class="btn btn-primary" href="${levels}" role="button">
-                                <spring:message code="levels.introMsg"/>
-                            </a>
-                            <a class="btn btn-primary float-right" href="${level1part9}" role="button">
-                                <spring:message code="levels.nextTheme"/>
-                            </a>
-                        </div>
-                    </div>
-
+                <div class="row row-levels">
+                    <a class="btn btn-blue btn-auto" href="${levels}" role="button">
+                        <spring:message code="levels.introMsg"/>
+                    </a>
                 </div>
 
             </div>
 
         </div>
 
+    </div>
+
         <script>
             $(document).ready(function () {
+
+                // Show / hide GoTo task btn on mobile version
+                window.addEventListener('scroll', function() {
+                    console.log("document.body.scrollTop = " + document.documentElement.scrollTop)
+                    if(document.documentElement.scrollTop < ($('#task').offset().top - window.innerHeight)){
+                        $('.btn-task').show()
+                    }else{
+                        $('.btn-task').hide()
+                    }
+                })
+
+                $('.btn-task').click(function () {
+                    $('html, body').animate({scrollTop: $('#task').offset().top - 120 }, 600);
+                })
+
+                $('a[href^="#"]').click(function () {
+                    var target = $(this).attr('href');
+                    $('html, body').animate({scrollTop: $(target).offset().top - 120 }, 600);
+                    return false;
+                });
+
                 $('.java-code').each(function (index, elem) {
                     CodeMirror.fromTextArea(elem, {
                         readOnly: "nocursor",

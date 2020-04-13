@@ -13,6 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import ru.learningjava.exceptions.UserServiceException;
 import ru.learningjava.io.entity.PasswordResetTokenEntity;
+import ru.learningjava.io.entity.Role;
 import ru.learningjava.io.entity.UserEntity;
 import ru.learningjava.io.repositories.PasswordResetTokenRepository;
 import ru.learningjava.io.repositories.UserRepository;
@@ -23,6 +24,7 @@ import ru.learningjava.shared.dto.UserDTO;
 import ru.learningjava.ui.model.response.ErrorMessages;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -55,16 +57,18 @@ public class UserServiceImpl implements UserService {
         String publicUserId = utils.generateUserId(30);
 
         userEntity.setUserId(publicUserId);
-        userEntity.setEncryptedPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+//        userEntity.setEncryptedPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        userEntity.setEncryptedPassword(user.getPassword());
         userEntity.setEmailVerificationToken(utils.generateEmailVerificationToken(publicUserId));
-        userEntity.setEmailVerificationStatus(false);
+        userEntity.setEmailVerificationStatus(true);
+        userEntity.setRoles(Collections.singleton(Role.ROLE_USER));
 
         UserEntity storedUserDetails = userRepository.save(userEntity);
 
         UserDTO returnValue = modelMapper.map(storedUserDetails, UserDTO.class);
 
         //Send email message
-        amazonSES.verifyEmail(returnValue);
+//        amazonSES.verifyEmail(returnValue);
 
         return returnValue;
     }
@@ -102,9 +106,6 @@ public class UserServiceImpl implements UserService {
 
         if (userEntity == null)
             throw new UsernameNotFoundException(ErrorMessages.NO_RECORD_FOUND.getErrorMessage());
-
-        userEntity.setFirstName(userDto.getFirstName());
-        userEntity.setLastName(userDto.getLastName());
 
         UserEntity updatedUserDetails = userRepository.save(userEntity);
 
@@ -167,21 +168,21 @@ public class UserServiceImpl implements UserService {
     public boolean requestPasswordReset(String email) {
         boolean returnValue = false;
 
-        UserEntity userEntity = userRepository.findUserByEmail(email);
-
-        if (userEntity == null) {
-            return returnValue;
-        }
-
-        String token = new Utils().generatePasswordResetToken(userEntity.getUserId());
-
-        PasswordResetTokenEntity passwordResetTokenEntity = new PasswordResetTokenEntity();
-        passwordResetTokenEntity.setToken(token);
-        passwordResetTokenEntity.setUserDetails(userEntity);
-        passwordResetTokenRepository.save(passwordResetTokenEntity);
-
-        returnValue = new AmazonSES().sendPasswordResetRequest(userEntity.getFirstName(), userEntity.getEmail(),
-                token);
+//        UserEntity userEntity = userRepository.findUserByEmail(email);
+//
+//        if (userEntity == null) {
+//            return returnValue;
+//        }
+//
+//        String token = new Utils().generatePasswordResetToken(userEntity.getUserId());
+//
+//        PasswordResetTokenEntity passwordResetTokenEntity = new PasswordResetTokenEntity();
+//        passwordResetTokenEntity.setToken(token);
+//        passwordResetTokenEntity.setUserDetails(userEntity);
+//        passwordResetTokenRepository.save(passwordResetTokenEntity);
+//
+//        returnValue = new AmazonSES().sendPasswordResetRequest(userEntity.getFirstName(), userEntity.getEmail(),
+//                token);
 
         return returnValue;
     }

@@ -14,6 +14,7 @@ import java.util.List;
 
 @Repository
 public interface UserRepository extends PagingAndSortingRepository<UserEntity, Long> {
+    UserEntity findUserByUsername(String username);
     UserEntity findUserByEmail(String email);
     UserEntity findByUserId(String userId);
     UserEntity findUserByEmailVerificationToken(String token);
@@ -23,19 +24,9 @@ public interface UserRepository extends PagingAndSortingRepository<UserEntity, L
             nativeQuery = true)
     Page<UserEntity> findAllByUsersWithConfirmedEmailAddresses(Pageable pageableRequest);
 
-    @Query(value="select * from users u where u.first_name = ?1", nativeQuery = true)
-    List<UserEntity> findAllByFirstName(String firstName);
-
-    @Query(value="select * from users u where u.last_name = :lastName", nativeQuery = true)
-    List<UserEntity> findAllByLastName(@Param("lastName") String lastName);
-
     @Query(value="select * from users u where u.first_name like %:keyword% or u.last_name like %:keyword%",
             nativeQuery = true)
     List<UserEntity> findAllByKeyword(@Param("keyword") String keyword);
-
-    @Query(value="select u.first_name, u.last_name from users u " +
-            "where u.first_name like %:keyword% or u.last_name like %:keyword%", nativeQuery = true)
-    List<Object[]> findUserFirstNameAndLastNameByKeyword(@Param("keyword") String keyword);
 
     @Transactional
     @Modifying
@@ -47,9 +38,6 @@ public interface UserRepository extends PagingAndSortingRepository<UserEntity, L
 
     @Query("select user from UserEntity user where user.userId = :userId")
     UserEntity findUserEntityByUserId(@Param("userId") String userId);
-
-    @Query("select user.firstName, user.lastName from UserEntity user where user.userId = :userId")
-    List<Object[]> findUserEntityFullNameById(@Param("userId") String userId);
 
     @Transactional
     @Modifying

@@ -29,18 +29,15 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("forward:/index.html");
 
         registry.addViewController("/").setViewName("/index");
-        registry.addViewController("/index.html").setViewName("/index");
-        registry.addViewController("/login.html").setViewName("/form/login");
-        registry.addViewController("/java.html").setViewName("/java/java");
-        registry.addViewController("/books.html").setViewName("/books/books");
-        registry.addViewController("/levels.html").setViewName("/levels/levels");
-        registry.addViewController("/search.html").setViewName("/search/search");
+        registry.addViewController("/index").setViewName("/index");
+        registry.addViewController("/login").setViewName("/form/login");
+        registry.addViewController("/java").setViewName("/java/java");
+        registry.addViewController("/books").setViewName("/books/books");
+        registry.addViewController("/levels").setViewName("/levels/levels");
+        registry.addViewController("/search").setViewName("/search/search");
 
-        registry.addViewController("/level1part1.html").setViewName("/level1/level1part1");
-        registry.addViewController("/level1part2.html").setViewName("/level1/level1part2");
     }
 
     @Bean(name = "localeChangeInterceptor")
