@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="page" tagdir="/WEB-INF/tags" %>
 
 <page:template>
 
-    <jsp:attribute name="title"><spring:message code="levels.level1.part2"/></jsp:attribute>
+    <jsp:attribute name="title"><spring:message code="levels.level1.part1"/></jsp:attribute>
 
     <jsp:body>
 
@@ -15,14 +15,14 @@
 
             <div class="level-c__menu">
                 <div class="level-c__menu__c">
-                    <a class="list-group-item list-group-item-action" href="#endOfLine">
-                        <spring:message code="levels.level1.part5.endOfLine"/>
+                    <a class="list-group-item list-group-item-action" href="#processing">
+                        <spring:message code="levels.level2.part6.processing"/>
                     </a>
-                    <a class="list-group-item list-group-item-action" href="#multiLine">
-                        <spring:message code="levels.level1.part5.multiLine"/>
+                    <a class="list-group-item list-group-item-action" href="#reading">
+                        <spring:message code="levels.level2.part6.reading"/>
                     </a>
-                    <a class="list-group-item list-group-item-action" href="#documentationComments">
-                        <spring:message code="levels.level1.part5.documentationComments"/>
+                    <a class="list-group-item list-group-item-action" href="#loop">
+                        <spring:message code="levels.level2.part6.loop"/>
                     </a>
                     <a class="list-group-item list-group-item-action" href="#task">
                         <spring:message code="levels.task"/>
@@ -31,7 +31,6 @@
             </div>
 
             <div class="level-c__content">
-
                 <div class="level-c__content__task">
                     <div class="btn btn-blue btn-task">
                         <spring:message code="levels.goToTask"/>
@@ -40,94 +39,99 @@
 
                 <div class="page__c__title">
                     <h1>
-                        <spring:message code="levels.level1.part5"/>
+                        <spring:message code="levels.level2.part6"/>
                     </h1>
                 </div>
+
                 <div class="col-2"></div>
 
                 <div class="col-10">
-
-                    <p>
-                        <spring:message code="levels.level1.part5.about1"/>
-                    </p>
-                    <p>
-                        <spring:message code="levels.level1.part5.about2"/>
-                    </p>
-
-
-                    <h3 id="endOfLine">
-                        <spring:message code="levels.level1.part5.endOfLine"/>
+                    <h3 id="processing">
+                        <spring:message code="levels.level2.part6.processing"/>
                     </h3>
                     <p>
-                        <spring:message code="levels.level1.part5.endOfLine.about1"/>
+                        <spring:message code="levels.level2.part6.processing.about1"/>
+                    </p>
+                    <p>
+                        <spring:message code="levels.level2.part6.processing.about2"/>
+                    </p>
+                    <p>
+                        <spring:message code="levels.level2.part6.processing.about3"/>
                     </p>
                     <form>
                         <textarea class="java-code"><spring:message
-                                code="levels.level1.part5.endOfLine.about2"/></textarea>
+                                code="levels.level2.part6.processing.about4"/></textarea>
                     </form>
-                    <br/>
-
                     <p>
-                        <spring:message code="levels.level1.part4.declaring.about3"/>
+                        <spring:message code="levels.level2.part6.processing.about5"/>
+                    </p>
+                    <p>
+                        <spring:message code="levels.level2.part6.processing.about6"/>
+                    </p>
+                    <p>
+                        <spring:message code="levels.level2.part6.processing.about7"/>
+                    </p>
+                    <form>
+                        <textarea class="java-code"><spring:message
+                                code="levels.level2.part6.processing.about8"/></textarea>
+                    </form>
+                    <p>
+                        <spring:message code="levels.level2.part6.processing.about9"/>
+                    </p>
+                    <p class="p-b-15">
+                        <spring:message code="levels.level2.part6.processing.about10"/>
                     </p>
 
-
-                    <h3 id="multiLine">
-                        <spring:message code="levels.level1.part5.multiLine"/>
+                    <h3 id="reading">
+                        <spring:message code="levels.level2.part6.reading"/>
                     </h3>
                     <p>
-                        <spring:message code="levels.level1.part5.multiLine.about1"/>
+                        <spring:message code="levels.level2.part6.reading.about1"/>
+                    </p>
+                    <p>
+                        <spring:message code="levels.level2.part6.reading.about2"/>
                     </p>
                     <form>
                         <textarea class="java-code"><spring:message
-                                code="levels.level1.part5.multiLine.about2"/></textarea>
+                                code="levels.level2.part6.reading.about3"/></textarea>
                     </form>
-                    <br/>
-
                     <p>
-                        <spring:message code="levels.level1.part5.multiLine.about3"/>
+                        <spring:message code="levels.level2.part6.reading.about4"/>
                     </p>
                     <form>
                         <textarea class="java-code"><spring:message
-                                code="levels.level1.part5.multiLine.about4"/></textarea>
+                                code="levels.level2.part6.reading.about5"/></textarea>
                     </form>
-                    <br/>
-
                     <p>
-                        <spring:message code="levels.level1.part5.multiLine.about5"/>
+                        <spring:message code="levels.level2.part6.reading.about6"/>
                     </p>
+                    <form class="p-b-15">
+                        <textarea class="java-code"><spring:message
+                                code="levels.level2.part6.reading.about7"/></textarea>
+                    </form>
 
-
-                    <h3 id="documentationComments">
-                        <spring:message code="levels.level1.part5.documentationComments"/>
+                    <h3 id="loop">
+                        <spring:message code="levels.level2.part6.loop"/>
                     </h3>
                     <p>
-                        <spring:message code="levels.level1.part5.documentationComments.about1"/>
+                        <spring:message code="levels.level2.part6.loop.about1"/>
                     </p>
                     <p>
-                        <spring:message code="levels.level1.part5.documentationComments.about2"/>
-                    </p>
-                    <p>
-                        <spring:message code="levels.level1.part5.documentationComments.about3"/>
+                        <spring:message code="levels.level2.part6.loop.about2"/>
                     </p>
                     <form>
                         <textarea class="java-code"><spring:message
-                                code="levels.level1.part5.documentationComments.about4"/></textarea>
+                                code="levels.level2.part6.loop.about3"/></textarea>
                     </form>
-                    <br/>
+                    <p class="p-b-15">
+                        <spring:message code="levels.level2.part6.loop.about4"/>
+                    </p>
 
 
                     <h3 id="task">
                         <spring:message code="levels.task"/>
                     </h3>
-
-                    <p><spring:message code="levels.level1.part5.task"/></p>
-                    <form>
-                        <textarea class="java-code"><spring:message code="levels.level1.part5.task.about"/></textarea>
-                    </form>
-                    <br/>
-
-                    <p><spring:message code="levels.solve"/></p>
+                    <p><spring:message code="levels.level1.part1.task"/></p>
                     <form>
                         <textarea id="java-editor" name='code'><c:out value="${code}"/></textarea>
                     </form>
@@ -148,17 +152,17 @@
                     <br/>
 
 
-                    <c:url value="/level1part4" var="level1part4"/>
+                    <c:url value="/level2part5" var="level2part5"/>
                     <c:url value="/levels" var="levels"/>
-                    <c:url value="/level1part6" var="level1part6"/>
+                    <c:url value="/level2part7" var="level2part7"/>
                     <div class="row">
-                        <a class="btn btn-blue" href="${level1part4}" role="button">
+                        <a class="btn btn-blue" href="${level2part5}" role="button">
                             <spring:message code="levels.previousTheme"/>
                         </a>
                         <a class="btn btn-blue btn-m-l-auto btn-levels" href="${levels}" role="button">
                             <spring:message code="levels.introMsg"/>
                         </a>
-                        <a class="btn btn-blue btn-m-l-auto" href="${level1part6}" role="button">
+                        <a class="btn btn-blue btn-m-l-auto" href="${level2part7}" role="button">
                             <spring:message code="levels.nextTheme"/>
                         </a>
                     </div>
@@ -169,9 +173,7 @@
                     </div>
 
                 </div>
-
             </div>
-
         </div>
 
         <script>
@@ -236,7 +238,7 @@
 
                     var dataPayload = {"code": code};
 
-                    $.post('/level1part5compile', JSON.stringify(dataPayload))
+                    $.post('/level2part5compile', JSON.stringify(dataPayload))
                         .done(function (response) {
 
                             compileAnswer.setValue(response["answer"]);
@@ -255,7 +257,6 @@
             });
 
         </script>
-
 
     </jsp:body>
 

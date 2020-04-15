@@ -1,4 +1,4 @@
-html, body{
+html, body {
     margin: 0px;
     padding: 0px;
 
@@ -8,7 +8,7 @@ html, body{
     height: 100%;
 }
 
-.page{
+.page {
     padding-top: 110px;
 
     flex-basis: 100%;
@@ -17,8 +17,9 @@ html, body{
     display: flex;
     flex-direction: column;
 }
-.page__c{
-    padding:0px 80px;
+
+.page__c {
+    padding: 0px 80px;
 
     flex-basis: 100%;
     flex-grow: 1;
@@ -26,148 +27,231 @@ html, body{
     display: flex;
     flex-direction: column;
 }
+
 @media screen and (max-width: 800px) {
-    .page__c{
+    .page__c {
         padding: 0px 40px;
     }
 }
+
 @media screen and (max-width: 600px) {
-    .page__c{
+    .page__c {
         padding: 0px 20px;
     }
 }
-.page__c__title{
+
+.page__c__title {
 
 }
-.page__c__title h1{
+
+.page__c__title h1 {
     font-size: 40px;
 }
 
 
-.row{
+.row {
     display: flex;
     flex-direction: row;
 }
-.row-wrap{
+
+.row-wrap {
     flex-wrap: wrap;
 }
-.col{
+
+.col {
     display: flex;
     flex-direction: column;
 }
-.col-1{
-    flex:1;
+
+.col-1 {
+    flex: 1;
 }
 
-.col-spacer{
-    width:20px;
+.col-spacer {
+    width: 20px;
 }
+
 @media screen and (max-width: 1085px) {
-    .col-spacer-2{
+    .col-spacer-2 {
         display: none;
     }
 }
+
 @media screen and (max-width: 705px) {
-    .col-spacer-1{
+    .col-spacer-1 {
         display: none;
     }
 
-    .row-wrap .col{
+    .row-wrap .col {
         min-width: 100%;
     }
 }
 
 
-p{
+p {
     font-size: 18px;
     line-height: 1.5;
 }
-.p-b-15{
+
+.p-b-15 {
     padding-bottom: 15px;
+}
+
+li {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+/* TABLE */
+
+table {
+    border-collapse: collapse;
+}
+
+th {
+    text-align: inherit;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+}
+
+.table th,
+.table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.table tbody + tbody {
+    border-top: 2px solid #dee2e6;
+}
+
+.table .thead-dark th {
+    color: #fff;
+    background-color: #343a40;
+    border-color: #454d55;
+}
+
+.col {
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+}
+
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
 }
 
 /* BUTTONS & LINKS */
 
 
-.link-red{
-    color: #e74c3c!important;
-}
-.link-blue{
-    color: #3498db!important;
+.link-red {
+    color: #e74c3c !important;
 }
 
-.btn{
+.link-blue {
+    color: #3498db !important;
+}
+
+.btn {
     font-weight: 500;
     font-size: 16px;
     border-radius: 4px;
 
     padding: 16px 22px;
 }
+
 @media screen and (max-width: 600px) {
-    .btn{
+    .btn {
         padding: 12px 10px;
     }
 }
+
 @media screen and (max-width: 500px) {
-    .btn{
+    .btn {
         font-size: 14px;
     }
-    .btn-levels{
+
+    .btn-levels {
         display: none;
     }
 }
-.btn-auto{
+
+.btn-auto {
     flex-grow: 1;
     flex-basis: 100%;
 
     justify-content: auto;
     text-align: center;
 }
-.btn-task{
+
+.btn-task {
     border-radius: 0px;
     text-align: center;
     font-size: 18px;
 }
-.btn-black{
+
+.btn-black {
     background-color: #222;
-    color:#fff;
+    color: #fff;
 
     transition: all 0.1s ease;
 
-    cursor:pointer;
+    cursor: pointer;
 }
-.btn-black:hover{
+
+.btn-black:hover {
     background-color: #444;
-    color:#fff;
+    color: #fff;
 }
-.btn-blue{
+
+.btn-blue {
     background-color: #3498db;
-    color:#fff;
+    color: #fff;
 
     transition: all 0.1s ease;
 
-    cursor:pointer;
+    cursor: pointer;
 }
-.btn-blue:hover{
+
+.btn-blue:hover {
     background-color: #2e89c7;
-    color:#fff;
+    color: #fff;
 }
-.btn-m-l-auto{
+
+.btn-m-l-auto {
     margin-left: auto;
 }
 
-h4{
+h4 {
     line-height: 1.5;
 }
 
 @media screen and (max-width: 600px) {
-    .page__c__title h1{
+    .page__c__title h1 {
         font-size: 7vw;
     }
-    h2{
+
+    h2 {
         font-size: 6vw;
     }
-    h3{
+
+    h3 {
         font-size: 5vw;
     }
 }

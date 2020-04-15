@@ -39,7 +39,7 @@
             <div class="level-c__content">
                 <div class="level-c__content__task">
                     <div class="btn btn-blue btn-task">
-                        Перейти к задаче
+                        <spring:message code="levels.goToTask"/>
                     </div>
                 </div>
 
@@ -228,7 +228,7 @@
 
                     var dataPayload = {"code": code};
 
-                    $.post('http://localhost:8080/level1part1compile', JSON.stringify(dataPayload))
+                    $.post('/level1part1compile', JSON.stringify(dataPayload))
                         .done(function (response) {
 
                             compileAnswer.setValue(response["answer"]);

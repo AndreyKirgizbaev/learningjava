@@ -11,131 +11,252 @@
 
     <jsp:body>
 
-    <div class="page__c__title">
-        <h1>
-            <spring:message code="levels.introMsg"/>
-        </h1>
-    </div>
+        <div class="page__c__title">
+            <h1>
+                <spring:message code="levels.introMsg"/>
+            </h1>
+        </div>
 
-    <c:url value="/level1part1" var="level1part1"/>
-    <div class="level-link" style="padding-bottom: 15px;">
-        <a href="${level1part1}">
+        <c:url value="/level1part1" var="level1part1"/>
+        <div class="level-link" style="padding-bottom: 15px;">
+            <a href="${level1part1}">
             <span>
                 1/10
             </span>
-            <h3>
-                <spring:message code="levels.level1.part1"/>
-            </h3>
-        </a>
-    </div>
+                <h3>
+                    <spring:message code="levels.level1.part1"/>
+                </h3>
+            </a>
+        </div>
 
-    <c:url value="/level1part2" var="level1part2"/>
-    <div class="level-link" style="padding-bottom: 15px;">
-        <a href="${level1part2}">
+        <c:url value="/level1part2" var="level1part2"/>
+        <div class="level-link" style="padding-bottom: 15px;">
+            <a href="${level1part2}">
             <span>
                 2/10
             </span>
-            <h3>
-                <spring:message code="levels.level1.part2"/>
-            </h3>
-        </a>
-    </div>
+                <h3>
+                    <spring:message code="levels.level1.part2"/>
+                </h3>
+            </a>
+        </div>
 
-    <c:url value="/level1part3" var="level1part3"/>
-    <div class="level-link" style="padding-bottom: 15px;">
-        <a href="${level1part3}">
+        <c:url value="/level1part3" var="level1part3"/>
+        <div class="level-link" style="padding-bottom: 15px;">
+            <a href="${level1part3}">
             <span>
                 3/10
             </span>
-            <h3>
-                <spring:message code="levels.level1.part3"/>
-            </h3>
-        </a>
-    </div>
+                <h3>
+                    <spring:message code="levels.level1.part3"/>
+                </h3>
+            </a>
+        </div>
 
-    <c:url value="/level1part4" var="level1part4"/>
-    <div class="level-link" style="padding-bottom: 15px;">
-        <a href="${level1part4}">
+        <c:url value="/level1part4" var="level1part4"/>
+        <div class="level-link" style="padding-bottom: 15px;">
+            <a href="${level1part4}">
             <span>
                 4/10
             </span>
-            <h3>
-                <spring:message code="levels.level1.part4"/>
-            </h3>
-        </a>
-    </div>
+                <h3>
+                    <spring:message code="levels.level1.part4"/>
+                </h3>
+            </a>
+        </div>
 
-    <c:url value="/level1part5" var="level1part5"/>
-    <div class="level-link" style="padding-bottom: 15px;">
-        <a href="${level1part5}">
+        <c:url value="/level1part5" var="level1part5"/>
+        <div class="level-link" style="padding-bottom: 15px;">
+            <a href="${level1part5}">
             <span>
                 5/10
             </span>
-            <h3>
-                <spring:message code="levels.level1.part5"/>
-            </h3>
-        </a>
-    </div>
+                <h3>
+                    <spring:message code="levels.level1.part5"/>
+                </h3>
+            </a>
+        </div>
 
-    <c:url value="/level1part6" var="level1part6"/>
-    <div class="level-link" style="padding-bottom: 15px;">
-        <a href="${level1part6}">
+        <c:url value="/level1part6" var="level1part6"/>
+        <div class="level-link" style="padding-bottom: 15px;">
+            <a href="${level1part6}">
             <span>
                 6/10
             </span>
-            <h3>
-                <spring:message code="levels.level1.part6"/>
-            </h3>
-        </a>
-    </div>
+                <h3>
+                    <spring:message code="levels.level1.part6"/>
+                </h3>
+            </a>
+        </div>
 
-    <c:url value="/level1part7" var="level1part7"/>
-    <div class="level-link" style="padding-bottom: 15px;">
-        <a href="${level1part7}">
+        <c:url value="/level1part7" var="level1part7"/>
+        <div class="level-link" style="padding-bottom: 15px;">
+            <a href="${level1part7}">
             <span>
                 7/10
             </span>
-            <h3>
-                <spring:message code="levels.level1.part7"/>
-            </h3>
-        </a>
-    </div>
+                <h3>
+                    <spring:message code="levels.level1.part7"/>
+                </h3>
+            </a>
+        </div>
 
-    <c:url value="/level1part8" var="level1part8"/>
-    <div class="level-link" style="padding-bottom: 15px;">
-        <a href="${level1part8}">
+        <c:url value="/level1part8" var="level1part8"/>
+        <div class="level-link" style="padding-bottom: 15px;">
+            <a href="${level1part8}">
             <span>
                 8/10
             </span>
-            <h3>
-                <spring:message code="levels.level1.part8"/>
-            </h3>
-        </a>
-    </div>
+                <h3>
+                    <spring:message code="levels.level1.part8"/>
+                </h3>
+            </a>
+        </div>
 
-    <c:url value="/level1part9" var="level1part9"/>
-    <div class="level-link" style="padding-bottom: 15px;">
-        <a href="${level1part9}">
+        <c:url value="/level1part9" var="level1part9"/>
+        <div class="level-link" style="padding-bottom: 15px;">
+            <a href="${level1part9}">
             <span>
                 9/10
             </span>
-            <h3>
-                <spring:message code="levels.level1.part9.return"/>
-            </h3>
-        </a>
-    </div>
+                <h3>
+                    <spring:message code="levels.level1.part9.return"/>
+                </h3>
+            </a>
+        </div>
 
-    <c:url value="/level1part10" var="level1part10"/>
-    <div class="level-link" style="padding-bottom: 15px;">
-        <a href="${level1part10}">
+        <c:url value="/level1part10" var="level1part10"/>
+        <div class="level-link" style="padding-bottom: 15px;">
+            <a href="${level1part10}">
             <span>
                 10/10
             </span>
-            <h3>
-                <spring:message code="levels.level1.part10"/>
-            </h3>
-        </a>
-    </div>
+                <h3>
+                    <spring:message code="levels.level1.part10"/>
+                </h3>
+            </a>
+        </div>
+
+
+        <c:url value="/level2part1" var="level2part1"/>
+        <div class="level-link" style="padding-bottom: 15px;">
+            <a href="${level2part1}">
+            <span>
+                1/10
+            </span>
+                <h3>
+                    <spring:message code="levels.level2.part1"/>
+                </h3>
+            </a>
+        </div>
+
+        <c:url value="/level2part2" var="level2part2"/>
+        <div class="level-link" style="padding-bottom: 15px;">
+            <a href="${level2part1}">
+            <span>
+                2/10
+            </span>
+                <h3>
+                    <spring:message code="levels.level2.part2"/>
+                </h3>
+            </a>
+        </div>
+
+        <c:url value="/level2part3" var="level2part3"/>
+        <div class="level-link" style="padding-bottom: 15px;">
+            <a href="${level2part3}">
+            <span>
+                3/10
+            </span>
+                <h3>
+                    <spring:message code="levels.level2.part3"/>
+                </h3>
+            </a>
+        </div>
+
+        <c:url value="/level2part4" var="level2part4"/>
+        <div class="level-link" style="padding-bottom: 15px;">
+            <a href="${level2part4}">
+            <span>
+                4/10
+            </span>
+                <h3>
+                    <spring:message code="levels.level2.part4"/>
+                </h3>
+            </a>
+        </div>
+
+        <c:url value="/level2part5" var="level2part5"/>
+        <div class="level-link" style="padding-bottom: 15px;">
+            <a href="${level2part5}">
+            <span>
+                5/10
+            </span>
+                <h3>
+                    <spring:message code="levels.level2.part5"/>
+                </h3>
+            </a>
+        </div>
+
+        <c:url value="/level2part6" var="level2part6"/>
+        <div class="level-link" style="padding-bottom: 15px;">
+            <a href="${level2part6}">
+            <span>
+                6/10
+            </span>
+                <h3>
+                    <spring:message code="levels.level2.part6"/>
+                </h3>
+            </a>
+        </div>
+
+        <c:url value="/level2part7" var="level2part7"/>
+        <div class="level-link" style="padding-bottom: 15px;">
+            <a href="${level2part7}">
+            <span>
+                7/10
+            </span>
+                <h3>
+                    <spring:message code="levels.level2.part7"/>
+                </h3>
+            </a>
+        </div>
+
+        <c:url value="/level2part8" var="level2part8"/>
+        <div class="level-link" style="padding-bottom: 15px;">
+            <a href="${level2part8}">
+            <span>
+                8/10
+            </span>
+                <h3>
+                    <spring:message code="levels.level2.part8"/>
+                </h3>
+            </a>
+        </div>
+
+        <c:url value="/level2part9" var="level2part9"/>
+        <div class="level-link" style="padding-bottom: 15px;">
+            <a href="${level2part9}">
+            <span>
+                9/10
+            </span>
+                <h3>
+                    <spring:message code="levels.level2.part9"/>
+                </h3>
+            </a>
+        </div>
+
+        <c:url value="/level2part10" var="level2part10"/>
+        <div class="level-link" style="padding-bottom: 15px;">
+            <a href="${level2part10}">
+            <span>
+                10/10
+            </span>
+                <h3>
+                    <spring:message code="levels.level2.part10"/>
+                </h3>
+            </a>
+        </div>
 
     </jsp:body>
 
