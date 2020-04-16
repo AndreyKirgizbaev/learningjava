@@ -265,10 +265,19 @@
                         <spring:message code="levels.level2.part1.compare.about4"/>
                     </p>
 
+
                     <h3 id="task">
                         <spring:message code="levels.task"/>
                     </h3>
-                    <p><spring:message code="levels.level1.part1.task"/></p>
+
+                    <p><spring:message code="levels.level2.part1.task"/></p>
+                    <form>
+                    <textarea class="java-code"><spring:message
+                            code="levels.level2.part1.task.about"/></textarea>
+                    </form>
+                    <br/>
+
+                    <p><spring:message code="levels.solve"/></p>
                     <form>
                         <textarea id="java-editor" name='code'><c:out value="${code}"/></textarea>
                     </form>

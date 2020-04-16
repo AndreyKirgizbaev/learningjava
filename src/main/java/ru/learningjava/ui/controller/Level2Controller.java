@@ -23,6 +23,13 @@ public class Level2Controller {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/level2/level2part1");
 
+        String code = "public class Main {\n" +
+                "    public static void main(String[] args) {\n" +
+                "       \n"+
+                "    }\n" +
+                "}";
+        modelAndView.addObject("code", code);
+
         return modelAndView;
     }
 
@@ -30,6 +37,13 @@ public class Level2Controller {
     public ModelAndView loadPart2Page() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/level2/level2part2");
+
+        String code = "public class Main {\n" +
+                "    public static void main(String[] args) {\n" +
+                "       \n"+
+                "    }\n" +
+                "}";
+        modelAndView.addObject("code", code);
 
         return modelAndView;
     }
@@ -39,7 +53,13 @@ public class Level2Controller {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/level2/level2part3");
 
-        modelAndView.addObject("code","");
+        String code = "public class Main {\n" +
+                "    public static void main(String[] args) {\n" +
+                "       \n"+
+                "    }\n" +
+                "}";
+        modelAndView.addObject("code", code);
+
 
         return modelAndView;
     }
@@ -49,7 +69,9 @@ public class Level2Controller {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/level2/level2part4");
 
-        String code = "public class Main {\n" +
+        String code = "import java.util.Arrays;\n" +
+                "\n" +
+                "public class Main {\n" +
                 "    public static void main(String[] args) {\n" +
                 "       \n"+
                 "    }\n" +

@@ -223,10 +223,19 @@
                         <spring:message code="levels.level2.part2.conclusion.about1"/>
                     </p>
 
+
                     <h3 id="task">
                         <spring:message code="levels.task"/>
                     </h3>
-                    <p><spring:message code="levels.level1.part1.task"/></p>
+
+                    <p><spring:message code="levels.level2.part2.task"/></p>
+                    <form>
+                    <textarea class="java-code"><spring:message
+                            code="levels.level2.part2.task.about"/></textarea>
+                    </form>
+                    <br/>
+
+                    <p><spring:message code="levels.solve"/></p>
                     <form>
                         <textarea id="java-editor" name='code'><c:out value="${code}"/></textarea>
                     </form>
@@ -333,7 +342,7 @@
 
                     var dataPayload = {"code": code};
 
-                    $.post('/level2part1compile', JSON.stringify(dataPayload))
+                    $.post('/level2part2compile', JSON.stringify(dataPayload))
                         .done(function (response) {
 
                             compileAnswer.setValue(response["answer"]);

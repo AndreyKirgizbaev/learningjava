@@ -235,6 +235,104 @@ public class RestLevelsCompileController {
                 "even");
     }
 
+    @PostMapping(value = "/level2part1compile", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public CompileStatusModel compileLevel2Part1Compile(@RequestBody CompileRequestModel compileRequestModel) {
+
+        String code = compileRequestModel.getCode();
+
+        CompileStatusModel returnValue = setCompileCode(code);
+
+        if (code.isEmpty()) {
+            return setCompileStatusAnswer(returnValue, "levels.empty");
+        } else if (!code.contains("public static void main(String[] args)")) {
+            return setCompileStatusAnswer(returnValue, "levels.level2.part1.task.error5");
+        } else if (!code.contains("str")) {
+            return setCompileStatusAnswer(returnValue, "levels.level2.part1.task.error1");
+        } else if (!code.contains("Java is the best!")) {
+            return setCompileStatusAnswer(returnValue, "levels.level2.part1.task.error2");
+        } else if (!code.contains("charAt(9)")) {
+            return setCompileStatusAnswer(returnValue, "levels.level2.part1.task.error3");
+        } else if (!code.contains("charAt(5)")) {
+            return setCompileStatusAnswer(returnValue, "levels.level2.part1.task.error4");
+        }
+
+        return setCompileAnswer(returnValue, "hi");
+    }
+
+    @PostMapping(value = "/level2part2compile", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public CompileStatusModel compileLevel2Part2Compile(@RequestBody CompileRequestModel compileRequestModel) {
+
+        String code = compileRequestModel.getCode();
+
+        CompileStatusModel returnValue = setCompileCode(code);
+
+        if (code.isEmpty()) {
+            return setCompileStatusAnswer(returnValue, "levels.empty");
+        } else if (!code.contains("public static void main(String[] args)")) {
+            return setCompileStatusAnswer(returnValue, "levels.level2.part2.task.error5");
+        } else if (!code.contains("str")) {
+            return setCompileStatusAnswer(returnValue, "levels.level2.part2.task.error1");
+        } else if (!code.contains("String.format(\"Мy level in java = %d\", lvl)")) {
+            return setCompileStatusAnswer(returnValue, "levels.level2.part2.task.error2");
+        } else if (!code.contains("lvl")) {
+            return setCompileStatusAnswer(returnValue, "levels.level2.part2.task.error3");
+        } else if (!code.contains("2")) {
+            return setCompileStatusAnswer(returnValue, "levels.level2.part2.task.error4");
+        }
+
+        return setCompileAnswer(returnValue, "Мy level in java = 2");
+    }
+
+    @PostMapping(value = "/level2part3compile", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public CompileStatusModel compileLevel2Part3Compile(@RequestBody CompileRequestModel compileRequestModel) {
+
+        String code = compileRequestModel.getCode();
+
+        CompileStatusModel returnValue = setCompileCode(code);
+
+        if (code.isEmpty()) {
+            return setCompileStatusAnswer(returnValue, "levels.empty");
+        } else if (!code.contains("public static void main(String[] args)")) {
+            return setCompileStatusAnswer(returnValue, "levels.level2.part3.task.error7");
+        } else if (!code.contains("a")) {
+            return setCompileStatusAnswer(returnValue, "levels.level2.part3.task.error1");
+        } else if (!code.contains("2")) {
+            return setCompileStatusAnswer(returnValue, "levels.level2.part3.task.error2");
+        } else if (!code.contains("b")) {
+            return setCompileStatusAnswer(returnValue, "levels.level2.part3.task.error3");
+        } else if (!code.contains("6")) {
+            return setCompileStatusAnswer(returnValue, "levels.level2.part3.task.error4");
+        } else if (!code.contains("max")) {
+            return setCompileStatusAnswer(returnValue, "levels.level2.part3.task.error5");
+        } else if (!code.contains("?") && !code.contains(":")) {
+            return setCompileStatusAnswer(returnValue, "levels.level2.part3.task.error6");
+        }
+
+        return setCompileAnswer(returnValue, "6");
+    }
+
+    @PostMapping(value = "/level2part4compile", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public CompileStatusModel compileLevel2Part4Compile(@RequestBody CompileRequestModel compileRequestModel) {
+
+        String code = compileRequestModel.getCode();
+
+        CompileStatusModel returnValue = setCompileCode(code);
+
+        if (code.isEmpty()) {
+            return setCompileStatusAnswer(returnValue, "levels.empty");
+        } else if (!code.contains("public static void main(String[] args)")) {
+            return setCompileStatusAnswer(returnValue, "levels.level2.part4.task.error4");
+        } else if (!code.contains("numbers1")) {
+            return setCompileStatusAnswer(returnValue, "levels.level2.part4.task.error1");
+        } else if (!code.contains("numbers2")) {
+            return setCompileStatusAnswer(returnValue, "levels.level2.part4.task.error2");
+        } else if (!code.contains("Arrays.equals")) {
+            return setCompileStatusAnswer(returnValue, "levels.level2.part4.task.error3");
+        }
+
+        return setCompileAnswer(returnValue, "false");
+    }
+
     public CompileStatusModel setCompileCode(String code) {
         CompileStatusModel returnValue = new CompileStatusModel();
         returnValue.setCode(code);
