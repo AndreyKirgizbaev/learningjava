@@ -7,7 +7,7 @@
 
 <page:template>
 
-    <jsp:attribute name="title"><spring:message code="levels.level1.part9"/></jsp:attribute>
+    <jsp:attribute name="title"><spring:message code="levels.level1.part9.return"/></jsp:attribute>
 
     <jsp:body>
 
@@ -34,7 +34,7 @@
 
                 <div class="page__c__title">
                     <h1>
-                        <spring:message code="levels.level1.part1"/>
+                        <spring:message code="levels.level1.part9.return"/>
                     </h1>
                 </div>
 
