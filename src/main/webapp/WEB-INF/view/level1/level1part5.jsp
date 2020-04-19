@@ -7,7 +7,7 @@
 
 <page:template>
 
-    <jsp:attribute name="title"><spring:message code="levels.level1.part2"/></jsp:attribute>
+    <jsp:attribute name="title"><spring:message code="levels.level1.part5"/></jsp:attribute>
 
     <jsp:body>
 

@@ -25,7 +25,7 @@ public class Level2Controller {
 
         String code = "public class Main {\n" +
                 "    public static void main(String[] args) {\n" +
-                "       \n"+
+                "       \n" +
                 "    }\n" +
                 "}";
         modelAndView.addObject("code", code);
@@ -40,7 +40,7 @@ public class Level2Controller {
 
         String code = "public class Main {\n" +
                 "    public static void main(String[] args) {\n" +
-                "       \n"+
+                "       \n" +
                 "    }\n" +
                 "}";
         modelAndView.addObject("code", code);
@@ -55,7 +55,7 @@ public class Level2Controller {
 
         String code = "public class Main {\n" +
                 "    public static void main(String[] args) {\n" +
-                "       \n"+
+                "       \n" +
                 "    }\n" +
                 "}";
         modelAndView.addObject("code", code);
@@ -73,7 +73,7 @@ public class Level2Controller {
                 "\n" +
                 "public class Main {\n" +
                 "    public static void main(String[] args) {\n" +
-                "       \n"+
+                "       \n" +
                 "    }\n" +
                 "}";
         modelAndView.addObject("code", code);
@@ -88,10 +88,8 @@ public class Level2Controller {
 
         String code = "public class Main {\n" +
                 "    public static void main(String[] args) {\n" +
-                "       // System.out.print(\"Hello \");\n" +
-                "       System.out.print(\"World!\");\n" +
-                "       // System.out.println(\"World!\");\n" +
-                "       /* System.out.println(\"I love Java!\"); */\n" +
+                "       String str = \"I dont love the java\";\n" +
+                "       \n" +
                 "    }\n" +
                 "}";
         modelAndView.addObject("code", code);
@@ -106,7 +104,7 @@ public class Level2Controller {
 
         String code = "public class Main {\n" +
                 "    public static void main(String[] args) {\n" +
-                "       int a = 5;\n" +
+                "       int[] numbers = { 1, 2, 4, 5, 6, 7, 8, 9, 10, 12, 14 };\n" +
                 "       \n" +
                 "    }\n" +
                 "}";
@@ -137,7 +135,9 @@ public class Level2Controller {
 
         String code = "public class Main {\n" +
                 "    public static void main(String[] args) {\n" +
-                "       \n" +
+                "       print(\"Hi!\");\n" +
+                "       print(\"I love java!\", 2);\n" +
+                "       print(\"Do you like java?\", 1);\n" +
                 "    }\n" +
                 "}";
         modelAndView.addObject("code", code);
@@ -150,9 +150,15 @@ public class Level2Controller {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/level2/level2part9");
 
-        String code = "public class Main {\n" +
+        String code = "import java.util.Arrays;\n" +
+                "\n" +
+                "public class Main {\n" +
                 "    public static void main(String[] args) {\n" +
-                "       System.out.println(isLove(true));\n" +
+                "       int[][] array = {\n" +
+                "                {1, 2, 3, 4, 5},\n" +
+                "                {6, 7, 8, 9, 0}\n" +
+                "       };\n" +
+                "       print(array);\n" +
                 "    }\n" +
                 "   \n" +
                 "   \n" +
@@ -169,15 +175,13 @@ public class Level2Controller {
         modelAndView.setViewName("/level2/level2part10");
 
         String code = "public class Main {\n" +
-                "    public static void main(String[] args) {\n" +
-                "       checkNumber(1);\n" +
-                "       checkNumber(2);\n" +
-                "       checkNumber(5);\n" +
-                "       checkNumber(4);\n" +
+                "    pablic statik void main(String[] args) {\n" +
+                "       Sustem.out.printline(\"Hello!\");\n" +
+                "       Sustem.out.printline(\"I love Java!\");\n" +
+                "       Sustem.out.prent(\"Java \");\n" +
+                "       Sustem.out.printline(\"the bezt!\");\n" +
+                "      // Sustem.out.printline(\"the best!\");\n" +
                 "    }\n" +
-                "   \n" +
-                "   \n" +
-                "   \n" +
                 "}";
         modelAndView.addObject("code", code);
 

@@ -333,6 +333,141 @@ public class RestLevelsCompileController {
         return setCompileAnswer(returnValue, "false");
     }
 
+    @PostMapping(value = "/level2part5compile", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public CompileStatusModel compileLevel2Part5Compile(@RequestBody CompileRequestModel compileRequestModel) {
+
+        String code = compileRequestModel.getCode();
+
+        CompileStatusModel returnValue = setCompileCode(code);
+
+        if (code.isEmpty()) {
+            return setCompileStatusAnswer(returnValue, "levels.empty");
+        } else if (!code.contains("public static void main(String[] args)")) {
+            return setCompileStatusAnswer(returnValue, "levels.level2.part5.task.error3");
+        } else if (!code.contains("str.split")) {
+            return setCompileStatusAnswer(returnValue, "levels.level2.part5.task.error1");
+        } else if (!code.contains("String str = \"I dont love the java\";")) {
+            return setCompileStatusAnswer(returnValue, "levels.level2.part5.task.error2");
+        }
+
+        return setCompileAnswer(returnValue, "I love java");
+    }
+
+    @PostMapping(value = "/level2part6compile", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public CompileStatusModel compileLevel2Part6Compile(@RequestBody CompileRequestModel compileRequestModel) {
+
+        String code = compileRequestModel.getCode();
+
+        CompileStatusModel returnValue = setCompileCode(code);
+
+        if (code.isEmpty()) {
+            return setCompileStatusAnswer(returnValue, "levels.empty");
+        } else if (!code.contains("public static void main(String[] args)")) {
+            return setCompileStatusAnswer(returnValue, "levels.level2.part6.task.error3");
+        } else if (!code.contains("for")) {
+            return setCompileStatusAnswer(returnValue, "levels.level2.part6.task.error1");
+        } else if (!code.contains("int[] numbers = { 1, 2, 4, 5, 6, 7, 8, 9, 10, 12, 14 };")) {
+            return setCompileStatusAnswer(returnValue, "levels.level2.part6.task.error2");
+        }
+
+        return setCompileAnswer(returnValue, "4 5 6 7");
+    }
+
+    @PostMapping(value = "/level2part7compile", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public CompileStatusModel compileLevel2Part7Compile(@RequestBody CompileRequestModel compileRequestModel) {
+
+        String code = compileRequestModel.getCode();
+
+        CompileStatusModel returnValue = setCompileCode(code);
+
+        if (code.isEmpty()) {
+            return setCompileStatusAnswer(returnValue, "levels.empty");
+        } else if (!code.contains("public static void main(String[] args)")) {
+            return setCompileStatusAnswer(returnValue, "levels.level2.part7.task.error2");
+        } else if (!code.contains("[][]")) {
+            return setCompileStatusAnswer(returnValue, "levels.level2.part7.task.error1");
+        }
+
+        return setCompileAnswer(returnValue, "2 1 2\n" +
+                "2 2 4\n" +
+                "2 3 6\n" +
+                "2 4 8\n" +
+                "2 5 10\n" +
+                "2 6 12\n" +
+                "2 7 14\n" +
+                "2 8 16\n" +
+                "2 9 18\n" +
+                "2 10 20");
+    }
+
+    @PostMapping(value = "/level2part8compile", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public CompileStatusModel compileLevel2Part8Compile(@RequestBody CompileRequestModel compileRequestModel) {
+
+        String code = compileRequestModel.getCode();
+
+        CompileStatusModel returnValue = setCompileCode(code);
+
+        if (code.isEmpty()) {
+            return setCompileStatusAnswer(returnValue, "levels.empty");
+        } else if (!code.contains("public static void main(String[] args)")) {
+            return setCompileStatusAnswer(returnValue, "levels.level2.part8.task.error2");
+        } else if (!code.contains("print(\"Hi!\");\n" +
+                "       print(\"I love java!\", 2);\n" +
+                "       print(\"Do you like java?\", 1);")) {
+            return setCompileStatusAnswer(returnValue, "levels.level2.part8.task.error1");
+        }
+
+        return setCompileAnswer(returnValue, "Hi!\n" +
+                "Hi!\n" +
+                "Hi!\n" +
+                "I love java!\n" +
+                "I love java!\n" +
+                "Do you like java?");
+    }
+
+    @PostMapping(value = "/level2part9compile", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public CompileStatusModel compileLevel2Part9Compile(@RequestBody CompileRequestModel compileRequestModel) {
+
+        String code = compileRequestModel.getCode();
+
+        CompileStatusModel returnValue = setCompileCode(code);
+
+        if (code.isEmpty()) {
+            return setCompileStatusAnswer(returnValue, "levels.empty");
+        } else if (!code.contains("public static void main(String[] args)")) {
+            return setCompileStatusAnswer(returnValue, "levels.level2.part9.task.error3");
+        } else if (!code.contains("public static void print(")) {
+            return setCompileStatusAnswer(returnValue, "levels.level2.part9.task.error1");
+        } else if (!code.contains("       int[][] array = {\n" +
+                "                {1, 2, 3, 4, 5},\n" +
+                "                {6, 7, 8, 9, 0}\n" +
+                "       };\n" +
+                "       print(array);\n")) {
+            return setCompileStatusAnswer(returnValue, "levels.level2.part9.task.error2");
+        }
+
+        return setCompileAnswer(returnValue, "[1, 2, 3, 4, 5]\n" +
+                "[6, 7, 8, 9, 0]");
+    }
+
+    @PostMapping(value = "/level2part10compile", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public CompileStatusModel compileLevel2Part10Compile(@RequestBody CompileRequestModel compileRequestModel) {
+
+        String code = compileRequestModel.getCode();
+
+        CompileStatusModel returnValue = setCompileCode(code);
+
+        if (code.isEmpty()) {
+            return setCompileStatusAnswer(returnValue, "levels.empty");
+        } else if (!code.contains("public static void main(String[] args)")) {
+            return setCompileStatusAnswer(returnValue, "levels.level2.part10.task.error1");
+        }
+
+        return setCompileAnswer(returnValue, "Hello!\n" +
+                "I love Java!\n" +
+                "Java the best!");
+    }
+
     public CompileStatusModel setCompileCode(String code) {
         CompileStatusModel returnValue = new CompileStatusModel();
         returnValue.setCode(code);

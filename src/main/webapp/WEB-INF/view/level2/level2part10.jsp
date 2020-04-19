@@ -7,7 +7,7 @@
 
 <page:template>
 
-    <jsp:attribute name="title"><spring:message code="levels.level1.part1"/></jsp:attribute>
+    <jsp:attribute name="title"><spring:message code="levels.level2.part10"/></jsp:attribute>
 
     <jsp:body>
 
@@ -135,12 +135,20 @@
                     <h3 id="task">
                         <spring:message code="levels.task"/>
                     </h3>
-                    <p><spring:message code="levels.level1.part1.task"/></p>
+
+                    <p><spring:message code="levels.level2.part10.task"/></p>
+                    <form>
+                    <textarea class="java-code"><spring:message
+                            code="levels.level2.part10.task.about"/></textarea>
+                    </form>
+                    <br/>
+
+                    <p><spring:message code="levels.solve"/></p>
                     <form>
                         <textarea id="java-editor" name='code'><c:out value="${code}"/></textarea>
                     </form>
                     <div class="text-center" style="padding-top: 20px">
-                        <input type="button" class="btn btn-black" id="compile"
+                        <input type="button" class="btn btn-black" id="compile1"
                                value="<spring:message code="levels.compile"/>">
                     </div>
 
@@ -228,7 +236,7 @@
                 });
                 compileAnswer.setSize("100%", "100%");
 
-                $("#compile").click(function () {
+                $("#compile1").click(function () {
 
                     var code = codeFromTextArea.getValue();
 
@@ -238,7 +246,7 @@
 
                     var dataPayload = {"code": code};
 
-                    $.post('/level2part9compile', JSON.stringify(dataPayload))
+                    $.post('/level2part10compile', JSON.stringify(dataPayload))
                         .done(function (response) {
 
                             compileAnswer.setValue(response["answer"]);
