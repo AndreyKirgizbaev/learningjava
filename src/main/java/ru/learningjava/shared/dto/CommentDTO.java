@@ -1,31 +1,16 @@
-package ru.learningjava.io.entity;
+package ru.learningjava.shared.dto;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 
-@Entity(name = "comments")
-public class CommentEntity implements Serializable {
+public class CommentDTO implements Serializable {
 
-    private static final long serialVersionUID = -4096430718122326381L;
-
-    @Id
-    @GeneratedValue
+    private static final long serialVersionUID = -1406083122866000583L;
     private long id;
-
-    @Column(nullable = false, length = 30)
     private String commentId;
-
-    @Column(nullable = false)
     private String comment;
-
-    @Column(nullable = false, length = 2)
     private String theme;
-
-    @Column(nullable = false, length = 15)
     private Date date;
-
-    @Column(nullable = false, length = 15)
     private String username;
 
     public long getId() {
@@ -76,4 +61,3 @@ public class CommentEntity implements Serializable {
         this.username = username;
     }
 }
-

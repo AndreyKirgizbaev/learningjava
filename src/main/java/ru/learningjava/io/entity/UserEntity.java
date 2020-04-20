@@ -37,9 +37,6 @@ public class UserEntity implements Serializable {
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
 
-    @OneToMany(mappedBy = "userDetails", cascade = CascadeType.ALL)
-    private List<CommentEntity> comments;
-
     public long getId() {
         return id;
     }
@@ -104,11 +101,4 @@ public class UserEntity implements Serializable {
         this.roles = roles;
     }
 
-    public List<CommentEntity> getComments() {
-        return comments;
-    }
-
-    public void setComments(List<CommentEntity> comments) {
-        this.comments = comments;
-    }
 }

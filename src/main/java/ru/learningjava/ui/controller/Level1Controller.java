@@ -6,7 +6,12 @@ import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import ru.learningjava.io.entity.CommentEntity;
+import ru.learningjava.service.impl.CommentService;
 import ru.learningjava.service.impl.CompileService;
+import ru.learningjava.shared.dto.CommentDTO;
+
+import java.util.List;
 
 @Controller
 public class Level1Controller {
@@ -18,10 +23,17 @@ public class Level1Controller {
     @Qualifier("messageSource")
     MessageSource messageSource;
 
+    @Autowired
+    CommentService commentService;
+
     @RequestMapping(value = "/level1part1", method = RequestMethod.GET)
     public ModelAndView loadPart1Page() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/level1/level1part1");
+
+        List<CommentDTO> comments = commentService.getCommentsByTheme("11");
+
+        modelAndView.addObject("comments", comments);
 
         return modelAndView;
     }
@@ -31,6 +43,10 @@ public class Level1Controller {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/level1/level1part2");
 
+        List<CommentDTO> comments = commentService.getCommentsByTheme("12");
+
+        modelAndView.addObject("comments", comments);
+
         return modelAndView;
     }
 
@@ -38,6 +54,10 @@ public class Level1Controller {
     public ModelAndView loadPart3Page() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/level1/level1part3");
+
+        List<CommentDTO> comments = commentService.getCommentsByTheme("13");
+
+        modelAndView.addObject("comments", comments);
 
         modelAndView.addObject("code","");
 
@@ -48,6 +68,10 @@ public class Level1Controller {
     public ModelAndView loadPart4Page() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/level1/level1part4");
+
+        List<CommentDTO> comments = commentService.getCommentsByTheme("14");
+
+        modelAndView.addObject("comments", comments);
 
         String code = "public class Main {\n" +
                 "    public static void main(String[] args) {\n" +
@@ -63,6 +87,10 @@ public class Level1Controller {
     public ModelAndView loadPart5Page() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/level1/level1part5");
+
+        List<CommentDTO> comments = commentService.getCommentsByTheme("15");
+
+        modelAndView.addObject("comments", comments);
 
         String code = "public class Main {\n" +
                 "    public static void main(String[] args) {\n" +
@@ -82,6 +110,10 @@ public class Level1Controller {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/level1/level1part6");
 
+        List<CommentDTO> comments = commentService.getCommentsByTheme("16");
+
+        modelAndView.addObject("comments", comments);
+
         String code = "public class Main {\n" +
                 "    public static void main(String[] args) {\n" +
                 "       int a = 5;\n" +
@@ -98,6 +130,10 @@ public class Level1Controller {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/level1/level1part7");
 
+        List<CommentDTO> comments = commentService.getCommentsByTheme("17");
+
+        modelAndView.addObject("comments", comments);
+
         String code = "public class Main {\n" +
                 "    public static void main(String[] args) {\n" +
                 "       \n" +
@@ -113,6 +149,10 @@ public class Level1Controller {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/level1/level1part8");
 
+        List<CommentDTO> comments = commentService.getCommentsByTheme("18");
+
+        modelAndView.addObject("comments", comments);
+
         String code = "public class Main {\n" +
                 "    public static void main(String[] args) {\n" +
                 "       \n" +
@@ -127,6 +167,10 @@ public class Level1Controller {
     public ModelAndView loadPart9Page() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/level1/level1part9");
+
+        List<CommentDTO> comments = commentService.getCommentsByTheme("19");
+
+        modelAndView.addObject("comments", comments);
 
         String code = "public class Main {\n" +
                 "    public static void main(String[] args) {\n" +
@@ -145,6 +189,10 @@ public class Level1Controller {
     public ModelAndView loadPart10Page() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/level1/level1part10");
+
+        List<CommentDTO> comments = commentService.getCommentsByTheme("10");
+
+        modelAndView.addObject("comments", comments);
 
         String code = "public class Main {\n" +
                 "    public static void main(String[] args) {\n" +

@@ -218,6 +218,39 @@
                         </a>
                     </div>
 
+                    <h3 id="comments">
+                        <spring:message code="levels.comments"/>
+                    </h3>
+                    <div class="form-group">
+                        <textarea id="enterComment" class="form-control"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <input type="button" class="btn btn-black" id="writeComment"
+                               value="<spring:message code="levels.writeComment"/>">
+                    </div>
+
+                    <br/>
+                    <br/>
+
+                    <div>
+                        <c:if test="${not empty comments}">
+
+                            <table>
+                                <c:forEach var="comment" items="#{comments}">
+                                    <tr>
+                                        <td><c:out value="${comment.username}"/></td>
+                                        <td><c:out value="${comment.date}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td><c:out value="${comment.comment}"/></td>
+                                    </tr>
+                                </c:forEach>
+                            </table>
+
+                        </c:if>
+                    </div>
+
                 </div>
 
             </div>
@@ -302,6 +335,28 @@
 
                         });
                 });
+
+                $("#writeComment").click(function () {
+
+                    var comment = document.getElementById("enterComment").value;
+
+                    if (comment === "") {
+                        alert("Комментарий не может быть пустым!")
+                    } else {
+
+                        $.ajaxSetup({
+                            "contentType": "application/json"
+                        });
+
+                        var dataPayload = {"comment": comment, "theme": "13"};
+
+                        $.post('/createComment', JSON.stringify(dataPayload))
+                            .done(function (response) {
+                                location.reload()
+                            });
+                    }
+                });
+
             });
 
         </script>

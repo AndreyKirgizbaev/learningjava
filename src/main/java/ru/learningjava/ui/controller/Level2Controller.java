@@ -6,7 +6,11 @@ import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import ru.learningjava.service.impl.CommentService;
 import ru.learningjava.service.impl.CompileService;
+import ru.learningjava.shared.dto.CommentDTO;
+
+import java.util.List;
 
 @Controller
 public class Level2Controller {
@@ -18,10 +22,17 @@ public class Level2Controller {
     @Qualifier("messageSource")
     MessageSource messageSource;
 
+    @Autowired
+    CommentService commentService;
+
     @RequestMapping(value = "/level2part1", method = RequestMethod.GET)
     public ModelAndView loadPart1Page() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/level2/level2part1");
+
+        List<CommentDTO> comments = commentService.getCommentsByTheme("21");
+
+        modelAndView.addObject("comments", comments);
 
         String code = "public class Main {\n" +
                 "    public static void main(String[] args) {\n" +
@@ -38,6 +49,10 @@ public class Level2Controller {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/level2/level2part2");
 
+        List<CommentDTO> comments = commentService.getCommentsByTheme("22");
+
+        modelAndView.addObject("comments", comments);
+
         String code = "public class Main {\n" +
                 "    public static void main(String[] args) {\n" +
                 "       \n" +
@@ -52,6 +67,10 @@ public class Level2Controller {
     public ModelAndView loadPart3Page() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/level2/level2part3");
+
+        List<CommentDTO> comments = commentService.getCommentsByTheme("23");
+
+        modelAndView.addObject("comments", comments);
 
         String code = "public class Main {\n" +
                 "    public static void main(String[] args) {\n" +
@@ -68,6 +87,10 @@ public class Level2Controller {
     public ModelAndView loadPart4Page() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/level2/level2part4");
+
+        List<CommentDTO> comments = commentService.getCommentsByTheme("24");
+
+        modelAndView.addObject("comments", comments);
 
         String code = "import java.util.Arrays;\n" +
                 "\n" +
@@ -86,6 +109,10 @@ public class Level2Controller {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/level2/level2part5");
 
+        List<CommentDTO> comments = commentService.getCommentsByTheme("25");
+
+        modelAndView.addObject("comments", comments);
+
         String code = "public class Main {\n" +
                 "    public static void main(String[] args) {\n" +
                 "       String str = \"I dont love the java\";\n" +
@@ -101,6 +128,10 @@ public class Level2Controller {
     public ModelAndView loadPart6Page() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/level2/level2part6");
+
+        List<CommentDTO> comments = commentService.getCommentsByTheme("26");
+
+        modelAndView.addObject("comments", comments);
 
         String code = "public class Main {\n" +
                 "    public static void main(String[] args) {\n" +
@@ -118,6 +149,10 @@ public class Level2Controller {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/level2/level2part7");
 
+        List<CommentDTO> comments = commentService.getCommentsByTheme("27");
+
+        modelAndView.addObject("comments", comments);
+
         String code = "public class Main {\n" +
                 "    public static void main(String[] args) {\n" +
                 "       \n" +
@@ -132,6 +167,10 @@ public class Level2Controller {
     public ModelAndView loadPart8Page() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/level2/level2part8");
+
+        List<CommentDTO> comments = commentService.getCommentsByTheme("28");
+
+        modelAndView.addObject("comments", comments);
 
         String code = "public class Main {\n" +
                 "    public static void main(String[] args) {\n" +
@@ -149,6 +188,10 @@ public class Level2Controller {
     public ModelAndView loadPart9Page() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/level2/level2part9");
+
+        List<CommentDTO> comments = commentService.getCommentsByTheme("29");
+
+        modelAndView.addObject("comments", comments);
 
         String code = "import java.util.Arrays;\n" +
                 "\n" +
@@ -173,6 +216,10 @@ public class Level2Controller {
     public ModelAndView loadPart10Page() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/level2/level2part10");
+
+        List<CommentDTO> comments = commentService.getCommentsByTheme("20");
+
+        modelAndView.addObject("comments", comments);
 
         String code = "public class Main {\n" +
                 "    pablic statik void main(String[] args) {\n" +

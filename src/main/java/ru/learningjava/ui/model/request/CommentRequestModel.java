@@ -4,8 +4,6 @@ public class CommentRequestModel {
 
     private String comment;
     private String theme;
-    private String date;
-    private String userName;
 
     public String getComment() {
         return comment;
@@ -23,19 +21,4 @@ public class CommentRequestModel {
         this.theme = theme;
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
 }
