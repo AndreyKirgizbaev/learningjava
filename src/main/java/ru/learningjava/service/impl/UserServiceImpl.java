@@ -25,7 +25,10 @@ import ru.learningjava.ui.model.response.ErrorMessages;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.EnumSet;
 import java.util.List;
+
+import static ru.learningjava.io.entity.Role.*;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -61,7 +64,7 @@ public class UserServiceImpl implements UserService {
         userEntity.setEncryptedPassword(user.getPassword());
         userEntity.setEmailVerificationToken(utils.generateEmailVerificationToken(publicUserId));
         userEntity.setEmailVerificationStatus(true);
-        userEntity.setRoles(Collections.singleton(Role.ROLE_USER));
+        userEntity.setRoles(EnumSet.of(ROLE_USER, ROLE_L1P1));
 
         UserEntity storedUserDetails = userRepository.save(userEntity);
 
@@ -122,6 +125,23 @@ public class UserServiceImpl implements UserService {
 
         UserEntity updatedUserDetails = userRepository.save(userEntity);
 
+        BeanUtils.copyProperties(updatedUserDetails, returnValue);
+
+        return returnValue;
+    }
+
+    @Override
+    public UserDTO updateUserRoles(String username, Role role) {
+        UserEntity userEntity = userRepository.findUserByUsername(username);
+
+        if (userEntity == null)
+            throw new UsernameNotFoundException(ErrorMessages.NO_RECORD_FOUND.getErrorMessage());
+
+        userEntity.getRoles().add(role);
+
+        UserEntity updatedUserDetails = userRepository.save(userEntity);
+
+        UserDTO returnValue = new UserDTO();
         BeanUtils.copyProperties(updatedUserDetails, returnValue);
 
         return returnValue;

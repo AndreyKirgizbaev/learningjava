@@ -111,6 +111,12 @@
     border-color: #bee5eb;
 }
 
+.alert-secondary {
+    color: #383d41;
+    background-color: #e2e3e5;
+    border-color: #d6d8db;
+}
+
 
 @media screen and (max-width: 600px) {
     .level-c__content__task{

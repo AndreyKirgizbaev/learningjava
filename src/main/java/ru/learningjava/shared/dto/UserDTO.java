@@ -1,7 +1,10 @@
 package ru.learningjava.shared.dto;
 
+import ru.learningjava.io.entity.Role;
+
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 public class UserDTO implements Serializable {
 
@@ -14,6 +17,7 @@ public class UserDTO implements Serializable {
     private String encryptedPassword;
     private String emailVerificationToken;
     private Boolean emailVerificationStatus = false;
+    private Set<Role> roles;
 
     public long getId() {
         return id;
@@ -77,5 +81,13 @@ public class UserDTO implements Serializable {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 }

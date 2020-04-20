@@ -5,11 +5,25 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.MediaType;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
+import ru.learningjava.io.entity.Role;
+import ru.learningjava.service.UserService;
 import ru.learningjava.service.impl.CompileService;
+import ru.learningjava.shared.dto.UserDTO;
 import ru.learningjava.ui.model.request.CompileRequestModel;
 import ru.learningjava.ui.model.response.CompileStatusModel;
 import ru.learningjava.ui.model.request.CompilerRest;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import static ru.learningjava.io.entity.Role.*;
 
 @RestController
 public class RestLevelsCompileController {
@@ -20,6 +34,9 @@ public class RestLevelsCompileController {
     @Autowired
     @Qualifier("messageSource")
     MessageSource messageSource;
+
+    @Autowired
+    UserService userService;
 
     @PostMapping(value = "/level1part1compile", consumes = MediaType.APPLICATION_JSON_VALUE)
     public CompileStatusModel compileLevel1Part1Compile(@RequestBody CompileRequestModel compileRequestModel) {
@@ -40,6 +57,8 @@ public class RestLevelsCompileController {
         returnValue.setResult(true);
         returnValue.setAnswer("23 $ I love Java");
 
+        addRole(ROLE_L1P2);
+
         return returnValue;
     }
 
@@ -54,15 +73,17 @@ public class RestLevelsCompileController {
         } else if (!code.contains("System.out.println(\"I know 2 methods for text output:\");")) {
             return setCompileStatusAnswer(returnValue, "levels.level1.part2.task.error1");
         } else if (!code.contains("System.out.println(\"println\");")) {
-            return setCompileStatusAnswer(returnValue,"levels.level1.part2.task.error2");
+            return setCompileStatusAnswer(returnValue, "levels.level1.part2.task.error2");
         } else if (!code.contains("System.out.println(\"print\");")) {
-            return setCompileStatusAnswer(returnValue,"levels.level1.part2.task.error3");
+            return setCompileStatusAnswer(returnValue, "levels.level1.part2.task.error3");
         }
 
         returnValue.setResult(true);
         returnValue.setAnswer("I know 2 methods for text output:\n" +
                 "println\n" +
                 "print");
+
+        addRole(ROLE_L1P3);
 
         return returnValue;
     }
@@ -77,7 +98,7 @@ public class RestLevelsCompileController {
             return setCompileStatusAnswer(returnValue, "levels.empty");
         }
 
-        return setCompileAnswer(returnValue, "Writing programs is very interesting!");
+        return setCompileAnswer(returnValue, "Writing programs is very interesting!", ROLE_L1P4);
     }
 
     @PostMapping(value = "/level1part4compile", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -98,8 +119,8 @@ public class RestLevelsCompileController {
             return setCompileStatusAnswer(returnValue, "levels.level1.part4.task.error4");
         }
 
-        return setCompileAnswer(returnValue,"Java\n" +
-                "5");
+        return setCompileAnswer(returnValue, "Java\n" +
+                "5", ROLE_L1P5);
     }
 
     @PostMapping(value = "/level1part5compile", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -116,7 +137,7 @@ public class RestLevelsCompileController {
         }
 
         return setCompileAnswer(returnValue, "Hello World!\n" +
-                "I love Java!");
+                "I love Java!", ROLE_L1P6);
     }
 
     @PostMapping(value = "/level1part6compile", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -135,7 +156,7 @@ public class RestLevelsCompileController {
             return setCompileStatusAnswer(returnValue, "levels.level1.part6.task.error3");
         }
 
-        return setCompileAnswer(returnValue, "4");
+        return setCompileAnswer(returnValue, "4", ROLE_L1P7);
     }
 
     @PostMapping(value = "/level1part7compile", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -156,7 +177,7 @@ public class RestLevelsCompileController {
             return setCompileStatusAnswer(returnValue, "levels.level1.part7.task.error4");
         }
 
-        return setCompileAnswer(returnValue, "2.4");
+        return setCompileAnswer(returnValue, "2.4", ROLE_L1P8);
     }
 
     @PostMapping(value = "/level1part8compile", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -182,7 +203,7 @@ public class RestLevelsCompileController {
             return setCompileStatusAnswer(returnValue, "levels.level1.part8.task.error4");
         }
 
-        return setCompileAnswer(returnValue, "isPositive = false");
+        return setCompileAnswer(returnValue, "isPositive = false", ROLE_L1P9);
     }
 
     @PostMapping(value = "/level1part9compile", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -204,7 +225,7 @@ public class RestLevelsCompileController {
             return setCompileStatusAnswer(returnValue, "levels.level1.part9.task.error4");
         }
 
-        return setCompileAnswer(returnValue, "I love Java");
+        return setCompileAnswer(returnValue, "I love Java", ROLE_L1P10);
     }
 
     @PostMapping(value = "/level1part10compile", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -232,7 +253,7 @@ public class RestLevelsCompileController {
         return setCompileAnswer(returnValue, "odd\n" +
                 "even\n" +
                 "odd\n" +
-                "even");
+                "even", ROLE_L2P1);
     }
 
     @PostMapping(value = "/level2part1compile", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -256,7 +277,7 @@ public class RestLevelsCompileController {
             return setCompileStatusAnswer(returnValue, "levels.level2.part1.task.error4");
         }
 
-        return setCompileAnswer(returnValue, "hi");
+        return setCompileAnswer(returnValue, "hi", ROLE_L2P2);
     }
 
     @PostMapping(value = "/level2part2compile", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -280,7 +301,7 @@ public class RestLevelsCompileController {
             return setCompileStatusAnswer(returnValue, "levels.level2.part2.task.error4");
         }
 
-        return setCompileAnswer(returnValue, "Мy level in java = 2");
+        return setCompileAnswer(returnValue, "Мy level in java = 2", ROLE_L2P3);
     }
 
     @PostMapping(value = "/level2part3compile", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -308,7 +329,7 @@ public class RestLevelsCompileController {
             return setCompileStatusAnswer(returnValue, "levels.level2.part3.task.error6");
         }
 
-        return setCompileAnswer(returnValue, "6");
+        return setCompileAnswer(returnValue, "6", ROLE_L2P4);
     }
 
     @PostMapping(value = "/level2part4compile", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -330,7 +351,7 @@ public class RestLevelsCompileController {
             return setCompileStatusAnswer(returnValue, "levels.level2.part4.task.error3");
         }
 
-        return setCompileAnswer(returnValue, "false");
+        return setCompileAnswer(returnValue, "false", ROLE_L2P5);
     }
 
     @PostMapping(value = "/level2part5compile", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -350,7 +371,7 @@ public class RestLevelsCompileController {
             return setCompileStatusAnswer(returnValue, "levels.level2.part5.task.error2");
         }
 
-        return setCompileAnswer(returnValue, "I love java");
+        return setCompileAnswer(returnValue, "I love java", ROLE_L2P6);
     }
 
     @PostMapping(value = "/level2part6compile", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -370,7 +391,7 @@ public class RestLevelsCompileController {
             return setCompileStatusAnswer(returnValue, "levels.level2.part6.task.error2");
         }
 
-        return setCompileAnswer(returnValue, "4 5 6 7");
+        return setCompileAnswer(returnValue, "4 5 6 7", ROLE_L2P7);
     }
 
     @PostMapping(value = "/level2part7compile", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -397,7 +418,7 @@ public class RestLevelsCompileController {
                 "2 7 14\n" +
                 "2 8 16\n" +
                 "2 9 18\n" +
-                "2 10 20");
+                "2 10 20", ROLE_L2P8);
     }
 
     @PostMapping(value = "/level2part8compile", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -422,7 +443,7 @@ public class RestLevelsCompileController {
                 "Hi!\n" +
                 "I love java!\n" +
                 "I love java!\n" +
-                "Do you like java?");
+                "Do you like java?", ROLE_L2P9);
     }
 
     @PostMapping(value = "/level2part9compile", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -447,7 +468,7 @@ public class RestLevelsCompileController {
         }
 
         return setCompileAnswer(returnValue, "[1, 2, 3, 4, 5]\n" +
-                "[6, 7, 8, 9, 0]");
+                "[6, 7, 8, 9, 0]", ROLE_L2P10);
     }
 
     @PostMapping(value = "/level2part10compile", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -465,7 +486,7 @@ public class RestLevelsCompileController {
 
         return setCompileAnswer(returnValue, "Hello!\n" +
                 "I love Java!\n" +
-                "Java the best!");
+                "Java the best!", ROLE_L2P10);
     }
 
     public CompileStatusModel setCompileCode(String code) {
@@ -483,7 +504,7 @@ public class RestLevelsCompileController {
         return compileStatusModel;
     }
 
-    public CompileStatusModel setCompileAnswer(CompileStatusModel compileStatusModel, String correctAnswer) {
+    public CompileStatusModel setCompileAnswer(CompileStatusModel compileStatusModel, String correctAnswer, Role role) {
         CompilerRest compilerRest = compileService.sendCode(compileStatusModel.getCode());
 
         String answer = compilerRest.getOutput();
@@ -493,6 +514,7 @@ public class RestLevelsCompileController {
 
         if (correctAnswer.equals(answer)) {
             compileStatusModel.setResult(true);
+            addRole(role);
         } else {
             compileStatusModel.setResult(false);
         }
@@ -500,5 +522,25 @@ public class RestLevelsCompileController {
         compileStatusModel.setAnswer(answer);
 
         return compileStatusModel;
+    }
+
+    public void addRole(Role role) {
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (!authentication.getAuthorities().contains(role)) {
+
+            UserDTO user = userService.updateUserRoles(authentication.getName(), role);
+
+            List<Role> userRoles = new ArrayList<>(user.getRoles());
+
+            List<GrantedAuthority> actualAuthorities = userRoles.stream()
+                    .map(userRole -> new SimpleGrantedAuthority(userRole.name())).collect(Collectors.toList());
+
+            Authentication newAuth = new UsernamePasswordAuthenticationToken(authentication.getPrincipal(),
+                    authentication.getCredentials(), actualAuthorities);
+
+            SecurityContextHolder.getContext().setAuthentication(newAuth);
+        }
     }
 }

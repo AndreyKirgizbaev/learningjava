@@ -33,7 +33,7 @@
                 <a class="nav-link" href="${search}"><spring:message code="navMenu.search"/></a>
             </div>
 
-            <security:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_SUPER_USER', 'ROLE_USER')" var="isUSer"/>
+            <security:authorize access="isAuthenticated()" var="isUSer"/>
 
             <c:if test="${not isUSer}">
                 <div class="header__c__options__option">

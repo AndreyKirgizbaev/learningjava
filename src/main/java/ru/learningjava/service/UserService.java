@@ -1,6 +1,7 @@
 package ru.learningjava.service;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
+import ru.learningjava.io.entity.Role;
 import ru.learningjava.shared.dto.UserDTO;
 
 import java.util.List;
@@ -16,6 +17,8 @@ public interface UserService extends UserDetailsService {
     UserDTO getUserByUserId(String userId);
 
     UserDTO updateUser(String userId, UserDTO userDto);
+
+    UserDTO updateUserRoles(String username, Role role);
 
     void deleteUser(String userId);
 

@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="page" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 
 <page:template>
 
@@ -102,9 +103,19 @@
                         <a class="btn btn-blue btn-m-l-auto btn-levels" href="${levels}" role="button">
                             <spring:message code="levels.introMsg"/>
                         </a>
-                        <a class="btn btn-blue btn-m-l-auto" href="${level1part8}" role="button">
-                            <spring:message code="levels.nextTheme"/>
-                        </a>
+                        <security:authorize access="hasRole('ROLE_L1P8')" var="nextLvl"/>
+
+                        <c:if test="${not nextLvl}">
+                            <a class="btn btn-grey btn-m-l-auto" role="button" id="next">
+                                <spring:message code="levels.nextTheme"/>
+                            </a>
+                        </c:if>
+
+                        <c:if test="${nextLvl}">
+                            <a class="btn btn-blue btn-m-l-auto" href="${level1part8}" role="button">
+                                <spring:message code="levels.nextTheme"/>
+                            </a>
+                        </c:if>
                     </div>
                     <div class="row row-levels">
                         <a class="btn btn-blue btn-auto" href="${levels}" role="button">
@@ -221,7 +232,7 @@
                             if (response["result"] === true) {
                                 $("#wrongAnswer").attr("style", "display: none !important;");
                                 $("#correctAnswer").attr("style", "display: block !important;");
-
+                                $("#next").removeClass("btn-grey").addClass("btn-blue").attr("href", "${level1part8}");
                             } else {
                                 $("#correctAnswer").attr("style", "display: none !important;");
                                 $("#wrongAnswer").attr("style", "display: block !important;");

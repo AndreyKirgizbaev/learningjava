@@ -234,6 +234,20 @@ th {
     color: #fff;
 }
 
+.btn-grey {
+    color: #383d41;
+    background-color: #e2e3e5;
+
+    transition: all 0.1s ease;
+
+    cursor: pointer;
+}
+
+.btn-grey:hover {
+    color: #383d41;
+    background-color: #e2e3e5;
+}
+
 .btn-m-l-auto {
     margin-left: auto;
 }
